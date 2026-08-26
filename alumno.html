@@ -1,0 +1,2424 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Alumno | NutriLearn Pro</title>
+
+    <!-- Fuentes y Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVEGACIÓN ESTUDIANTE -->
+    <header id="main-header" class="top-nav">
+      <div class="container nav-container">
+        <div class="logo">
+          <i class="ph-fill ph-pulse"></i> NutriLearn<span
+            style="font-weight: 300"
+            >Pro</span
+          >
+        </div>
+
+        <nav id="nav-student" class="nav-links nav-group active">
+          <a href="#" onclick="switchTab('student-dashboard')" class="active"
+            >Mi Panel</a
+          >
+
+          <!-- MENÚ DESPLEGABLE AULAS VIRTUALES -->
+          <div class="nav-dropdown">
+            <a
+              href="#"
+              style="display: flex; align-items: center; gap: 0.25rem"
+            >
+              Aulas Virtuales <i class="ph ph-caret-down"></i>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="#" onclick="switchTab('student-courses')">Mis Cursos</a>
+              <a href="#" onclick="switchTab('student-resources')"
+                >Biblioteca de Recursos</a
+              >
+            </div>
+          </div>
+
+          <a href="#" onclick="switchTab('student-gamification')">Retos</a>
+          <a href="#" onclick="switchTab('student-community')">Comunidad</a>
+          <a href="#" onclick="switchTab('student-helpdesk')">Soporte</a>
+          <button
+            onclick="logout()"
+            class="btn btn-outline"
+            style="margin-left: 1rem"
+          >
+            <i class="ph ph-sign-out"></i> Salir
+          </button>
+        </nav>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE ESTUDIANTE -->
+    <div
+      class="mobile-overlay"
+      id="mobile-overlay"
+      onclick="toggleMobileMenu()"
+    ></div>
+    <div id="mobile-menu" class="mobile-nav">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid var(--border-color);
+          padding-bottom: 1rem;
+        "
+      >
+        <div class="logo" style="font-size: 1.25rem">
+          <i class="ph-fill ph-pulse"></i> NutriLearn<span
+            style="font-weight: 300"
+            >Pro</span
+          >
+        </div>
+        <button
+          onclick="toggleMobileMenu()"
+          style="font-size: 1.5rem; color: var(--text-muted)"
+        >
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+      <div
+        id="mobile-links"
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-top: 1rem;
+        "
+      ></div>
+    </div>
+
+    <!-- CONTENIDO GENERAL -->
+    <main id="standard-layout">
+
+      <!-- 1. STUDENT: DASHBOARD (Mi Panel) -->
+      <section id="student-dashboard" class="view-section active">
+        <div class="container">
+          <h2 style="margin-bottom: 2rem">
+            Bienvenido de nuevo, Dr. García 👋
+          </h2>
+
+          <!-- Usamos la clase CSS en lugar de estilos en línea -->
+          <div class="dashboard-grid">
+            
+            <!-- COLUMNA IZQUIERDA: CURSO ACTUAL -->
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <h3 style="margin: 0; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                <i class="ph-fill ph-books"></i> Mis Cursos Inscritos
+              </h3>
+
+              <!-- Resumen Curso 1 -->
+              <div class="resume-course">
+                <span style="background: rgba(255, 255, 255, 0.2); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; margin-bottom: 1rem; display: inline-block;">
+                  Módulo 1 • En progreso
+                </span>
+                <h3>Máster en Microbiota Clínica</h3>
+                <p>Última vez: Lección 1.1 - Fisiopatología de la permeabilidad intestinal.</p>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+                  <!-- BOTÓN CORRECTO CON SALTO A LA LECCIÓN 0 -->
+                  <button onclick="startCourseLesson(0)" class="btn" style="background: white; color: var(--primary); font-weight: 700;">
+                    Continuar Lección
+                    <i class="ph-fill ph-play-circle" style="font-size: 1.25rem; margin-left: 0.5rem"></i>
+                  </button>
+                  <div class="progress-circle-container">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.3); border-top-color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;">45%</div>
+                    <span style="font-weight: 600">Progreso General</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resumen Curso 2 -->
+              <div class="resume-course">
+                <span style="background: rgba(255, 255, 255, 0.2); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; margin-bottom: 1rem; display: inline-block;">
+                  Módulo 1 • En progreso
+                </span>
+                <h3>Nutrición Clínica en SOP</h3>
+                <p>Última vez: Lección 1.2 Suplementación en SOP: Inositol y barrera intestinal.</p>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+                  <!-- BOTÓN CORRECTO CON SALTO A LA LECCIÓN 1 -->
+                  <button onclick="startCourseLesson(1)" class="btn" style="background: white; color: var(--primary); font-weight: 700;">
+                    Continuar Lección
+                    <i class="ph-fill ph-play-circle" style="font-size: 1.25rem; margin-left: 0.5rem"></i>
+                  </button>
+                  <div class="progress-circle-container">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.3); border-top-color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;">85%</div>
+                    <span style="font-weight: 600">Progreso General</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: AGENDA EN DIRECTO -->
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <h3 style="margin: 0; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                <i class="ph-fill ph-broadcast"></i> Agenda en Directo
+              </h3>
+
+              <div class="card" style="border: 2px solid var(--danger); background: #fff0f2; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span class="badge" style="background: var(--danger); color: white; padding: 0.3rem 0.6rem; font-weight: bold;">
+                    <i class="ph-fill ph-record" style="margin-right: 4px"></i> EN DIRECTO
+                  </span>
+                  <span style="font-size: 0.75rem; color: var(--danger); font-weight: 800; text-transform: uppercase;">Masterclass</span>
+                </div>
+                <h4 style="margin: 0; color: var(--primary)">Resolución de Casos Clínicos SOP</h4>
+                <p style="margin: 0; font-size: 0.8rem; color: var(--danger)">La sesión ha comenzado hace 10 min.</p>
+                <button class="btn btn-primary" style="background: var(--danger); border-color: var(--danger); width: 100%; margin-top: 0.5rem;" onclick="showToast('Abriendo Zoom...', 'success')">
+                  <i class="ph-fill ph-video-camera"></i> Entrar a la Sesión
+                </button>
+              </div>
+
+              <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;"><i class="ph ph-calendar"></i> Mañana • 18:00h</span>
+                  <span class="badge" style="background: #fef3c7; color: #d97706; padding: 0.2rem 0.5rem;">Taller Práctico</span>
+                </div>
+                <h4 style="margin: 0; color: var(--primary); font-size: 1rem">Diseño de Menú Antiinflamatorio</h4>
+                <button class="btn btn-outline" style="width: 100%; padding: 0.4rem; margin-top: 0.5rem" onclick="showToast('Notificación activada', 'success')">
+                  <i class="ph ph-bell"></i> Recordarme
+                </button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+
+      <section id="student-courses" class="view-section">
+        <div class="container">
+          <!-- ESTADO A: GRID DE CURSOS -->
+          <div
+            id="lms-courses-grid"
+            style="display: flex; flex-direction: column; gap: 2rem"
+          >
+            <div>
+              <h2
+                style="
+                  color: var(--primary);
+                  margin-bottom: 0.5rem;
+                  margin-top: 0;
+                  font-size: 1.8rem;
+                "
+              >
+                Mis Cursos Disponibles
+              </h2>
+              <p
+                style="color: var(--text-muted); font-size: 0.95rem; margin: 0"
+              >
+                Selecciona un programa para continuar tu formación.
+              </p>
+            </div>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2rem;
+              "
+            >
+              <!-- Tarjeta Curso 1 -->
+              <div
+                class="card"
+                style="
+                  padding: 0;
+                  overflow: hidden;
+                  display: flex;
+                  flex-direction: column;
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius-lg);
+                  box-shadow: var(--shadow-sm);
+                "
+              >
+                <div
+                  style="
+                    height: 160px;
+                    background: #edf2eb;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-bottom: 1px solid var(--border-color);
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      top: 16px;
+                      left: 16px;
+                      background: white;
+                      padding: 0.3rem 0.8rem;
+                      border-radius: 20px;
+                      font-size: 0.75rem;
+                      font-weight: 700;
+                      color: #2e4d34;
+                      border: 1px solid #d1dfc9;
+                    "
+                    >Avanzado</span
+                  >
+                  <span
+                    style="color: #2e4d34; font-weight: 700; font-size: 1.25rem"
+                    >Máster en Microbiota Clínica</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    background: white;
+                    flex-grow: 1;
+                  "
+                >
+                  <div>
+                    <h3
+                      style="
+                        margin: 0 0 0.5rem 0;
+                        color: var(--primary);
+                        font-size: 1.15rem;
+                      "
+                    >
+                      Máster Microbiota e Inmunología
+                    </h3>
+                    <p
+                      style="
+                        color: var(--text-muted);
+                        font-size: 0.9rem;
+                        margin: 0;
+                        line-height: 1.5;
+                      "
+                    >
+                      Abordaje integrativo de la barrera intestinal y patologías
+                      autoinmunes.
+                    </p>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 1.5rem;
+                      font-size: 0.85rem;
+                      color: var(--text-muted);
+                      margin-top: 0.5rem;
+                    "
+                  >
+                    <span
+                      style="display: flex; align-items: center; gap: 0.4rem"
+                      ><i class="ph ph-stack" style="font-size: 1.1rem"></i> 12
+                      lecciones</span
+                    >
+                    <span
+                      style="display: flex; align-items: center; gap: 0.4rem"
+                      ><i class="ph ph-clock" style="font-size: 1.1rem"></i> 8h
+                      30m</span
+                    >
+                  </div>
+                  <button
+                    class="btn btn-primary"
+                    style="
+                      width: 100%;
+                      margin-top: 0.5rem;
+                      justify-content: center;
+                      background: #2563eb;
+                      border-color: #2563eb;
+                    "
+                    onclick="
+                      openLmsCoursePlayer('Máster en Microbiota Clínica')
+                    "
+                  >
+                    <i class="ph ph-play-circle" style="font-size: 1.2rem"></i>
+                    Ver curso
+                  </button>
+                </div>
+              </div>
+
+              <!-- Tarjeta Curso 2 -->
+              <div
+                class="card"
+                style="
+                  padding: 0;
+                  overflow: hidden;
+                  display: flex;
+                  flex-direction: column;
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius-lg);
+                  box-shadow: var(--shadow-sm);
+                "
+              >
+                <div
+                  style="
+                    height: 160px;
+                    background: #fae8e8;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-bottom: 1px solid var(--border-color);
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      top: 16px;
+                      left: 16px;
+                      background: white;
+                      padding: 0.3rem 0.8rem;
+                      border-radius: 20px;
+                      font-size: 0.75rem;
+                      font-weight: 700;
+                      color: #7f1d1d;
+                      border: 1px solid #fecaca;
+                    "
+                    >Especialización</span
+                  >
+                  <span
+                    style="color: #7f1d1d; font-weight: 700; font-size: 1.25rem"
+                    >Abordaje Nutricional en SOP</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    background: white;
+                    flex-grow: 1;
+                  "
+                >
+                  <div>
+                    <h3
+                      style="
+                        margin: 0 0 0.5rem 0;
+                        color: var(--primary);
+                        font-size: 1.15rem;
+                      "
+                    >
+                      Nutrición Clínica en SOP
+                    </h3>
+                    <p
+                      style="
+                        color: var(--text-muted);
+                        font-size: 0.9rem;
+                        margin: 0;
+                        line-height: 1.5;
+                      "
+                    >
+                      Estrategias de suplementación, analítica hormonal y
+                      sensibilidad a la insulina.
+                    </p>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 1.5rem;
+                      font-size: 0.85rem;
+                      color: var(--text-muted);
+                      margin-top: 0.5rem;
+                    "
+                  >
+                    <span
+                      style="display: flex; align-items: center; gap: 0.4rem"
+                      ><i class="ph ph-stack" style="font-size: 1.1rem"></i> 8
+                      lecciones</span
+                    >
+                    <span
+                      style="display: flex; align-items: center; gap: 0.4rem"
+                      ><i class="ph ph-clock" style="font-size: 1.1rem"></i> 5h
+                      00m</span
+                    >
+                  </div>
+                  <button
+                    class="btn btn-primary"
+                    style="
+                      width: 100%;
+                      margin-top: 0.5rem;
+                      justify-content: center;
+                      background: #2563eb;
+                      border-color: #2563eb;
+                    "
+                    onclick="openLmsCoursePlayer('Abordaje Nutricional en SOP')"
+                  >
+                    <i class="ph ph-play-circle" style="font-size: 1.2rem"></i>
+                    Ver curso
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ESTADO B: REPRODUCTOR DE CURSO INTERACTIVO -->
+          <div
+            id="lms-course-player"
+            style="
+              display: none;
+              flex-direction: column;
+              gap: 2rem;
+              padding-bottom: 3rem;
+            "
+          >
+            <div>
+              <button
+                class="btn btn-outline"
+                style="
+                  padding: 0.4rem 0.8rem;
+                  font-size: 0.85rem;
+                  margin-top: 1rem;
+                "
+                onclick="closeLmsCoursePlayer()"
+              >
+                <i class="ph ph-arrow-left"></i> Volver a Mis Cursos
+              </button>
+            </div>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 2rem;
+                align-items: start;
+              "
+              class="course-player-grid"
+            >
+              <!-- Izquierda: Reproductor -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem">
+                <div
+                  style="
+                    background: #0f172a;
+                    border-radius: var(--radius-lg);
+                    height: 400px;
+                    overflow: hidden;
+                    box-shadow: var(--shadow-sm);
+                    position: relative;
+                  "
+                >
+                  <iframe
+                    id="preview-video-iframe"
+                    width="100%"
+                    height="100%"
+                    src=""
+                    title="Reproductor"
+                    frameborder="0"
+                    allowfullscreen
+                    style="border: none"
+                  ></iframe>
+                </div>
+                <div class="card">
+                  <span
+                    style="
+                      font-size: 0.75rem;
+                      color: var(--accent);
+                      font-weight: 700;
+                      text-transform: uppercase;
+                    "
+                    id="preview-module-tag"
+                    >Módulo</span
+                  >
+                  <h3
+                    style="color: var(--primary); margin: 0.25rem 0 0.75rem 0"
+                    id="preview-lesson-title"
+                  >
+                    Título de la Lección
+                  </h3>
+                  <div
+                    id="preview-lesson-desc"
+                    class="lesson-article"
+                    style="
+                      color: var(--text-muted);
+                      font-size: 0.95rem;
+                      line-height: 1.6;
+                    "
+                  ></div>
+                </div>
+              </div>
+
+              <!-- Derecha: Progreso y Temario -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem">
+                <div
+                  class="card"
+                  style="display: flex; align-items: center; gap: 1.5rem"
+                >
+                  <div
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      border-radius: 50%;
+                      border: 4px solid var(--success);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-weight: 800;
+                      font-size: 1.1rem;
+                      color: var(--success);
+                      flex-shrink: 0;
+                    "
+                  >
+                    45%
+                  </div>
+                  <div>
+                    <h4
+                      style="margin: 0; color: var(--primary); font-size: 1rem"
+                    >
+                      Tu progreso general
+                    </h4>
+                    <p
+                      style="
+                        margin: 0.25rem 0 0 0;
+                        font-size: 0.8rem;
+                        color: var(--text-muted);
+                      "
+                    >
+                      Sigue así, vas genial.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <h4
+                    style="
+                      margin-top: 0;
+                      margin-bottom: 1rem;
+                      color: var(--primary);
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                    "
+                  >
+                    <i class="ph-fill ph-list-bullets"></i> Contenido del curso
+                  </h4>
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.75rem"
+                  >
+                    <div
+                      id="sidebar-lesson-0"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0.75rem;
+                        border-radius: 8px;
+                        cursor: pointer;
+                      "
+                      onclick="changePreviewLesson(0)"
+                    ></div>
+                    <div
+                      id="sidebar-lesson-1"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0.75rem;
+                        border-radius: 8px;
+                        cursor: pointer;
+                      "
+                      onclick="changePreviewLesson(1)"
+                    ></div>
+                  </div>
+                </div>
+
+                <div
+                  class="card"
+                  style="background: #fdfbf7; border: 1px solid #ebdccc"
+                >
+                  <h4
+                    style="
+                      margin-top: 0;
+                      margin-bottom: 1rem;
+                      color: var(--primary);
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                    "
+                  >
+                    <i
+                      class="ph-fill ph-folder-open"
+                      style="color: #d97706"
+                    ></i>
+                    Material descargable
+                  </h4>
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.75rem"
+                    id="preview-pdf-container"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navegación Inferior -->
+            <div
+              class="card"
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.25rem 2rem;
+              "
+            >
+              <button
+                class="btn btn-outline"
+                id="prev-lesson-btn"
+                onclick="prevPreviewLesson()"
+              >
+                <i class="ph ph-arrow-left"></i> Anterior
+              </button>
+              <span
+                style="
+                  font-size: 0.85rem;
+                  font-weight: 600;
+                  color: var(--text-muted);
+                "
+                id="lesson-counter-text"
+                >Lección 1</span
+              >
+              <button
+                class="btn btn-primary"
+                id="next-lesson-btn"
+                onclick="nextPreviewLesson()"
+              >
+                Completar y Siguiente <i class="ph ph-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2.5 STUDENT: BIBLIOTECA DE RECURSOS -->
+      <section id="student-resources" class="view-section">
+        <div class="container">
+          <!-- Título principal -->
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 2rem;
+            "
+          >
+            <h2 style="color: var(--primary); margin: 0; font-size: 1.8rem">
+              Biblioteca de Recursos
+            </h2>
+          </div>
+
+          <!-- Buscador y Filtros -->
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 1rem;
+              margin-bottom: 2rem;
+            "
+          >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Buscar recursos, guías, plantillas..."
+              style="
+                width: 100%;
+                max-width: 400px;
+                padding: 0.75rem 1rem;
+                border-radius: 20px;
+              "
+            />
+            <div class="filter-pills">
+              <span class="filter-pill active">Todas</span>
+              <span class="filter-pill">PDFs</span>
+              <span class="filter-pill">Menús</span>
+              <span class="filter-pill">Vídeos</span>
+              <span class="filter-pill">Audios</span>
+              <span class="filter-pill">Word</span>
+              <span class="filter-pill">Excel</span>
+            </div>
+          </div>
+
+          <!-- Maquetación de la Biblioteca -->
+          <div class="resource-layout">
+            <!-- Barra lateral -->
+            <aside class="resource-sidebar-menu">
+              <div class="resource-nav-title" style="margin-top: 0">
+                BIBLIOTECA
+              </div>
+              <div class="resource-nav-item active">
+                <i class="ph ph-stack"></i> <span>Todos los recursos</span>
+              </div>
+              <div class="resource-nav-item">
+                <i class="ph ph-clock"></i> <span>Recientes</span>
+              </div>
+              <div class="resource-nav-item">
+                <i class="ph ph-star"></i> <span>Favoritos</span>
+              </div>
+
+              <div class="resource-nav-title" style="margin-top: 1.5rem">
+                CATEGORÍAS
+              </div>
+              <div class="resource-nav-item resource-nav-category">
+                <span style="display: flex; align-items: center; gap: 0.6rem"
+                  ><div
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: var(--accent);
+                    "
+                  ></div>
+                  Nutrición</span
+                >
+                <span style="color: var(--text-muted); font-size: 0.85rem"
+                  >1</span
+                >
+              </div>
+              <div class="resource-nav-item resource-nav-category">
+                <span style="display: flex; align-items: center; gap: 0.6rem"
+                  ><div
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #d97706;
+                    "
+                  ></div>
+                  Recetas</span
+                >
+                <span style="color: var(--text-muted); font-size: 0.85rem"
+                  >1</span
+                >
+              </div>
+              <div class="resource-nav-item resource-nav-category">
+                <span style="display: flex; align-items: center; gap: 0.6rem"
+                  ><div
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background: #af06d9;
+                    "
+                  ></div>
+                  Clínico</span
+                >
+                <span style="color: var(--text-muted); font-size: 0.85rem"
+                  >1</span
+                >
+              </div>
+            </aside>
+
+            <!-- Cuadrícula de Archivos -->
+            <div class="resource-grid">
+              <!-- Recurso 1 -->
+              <div class="resource-card">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 1rem;
+                  "
+                >
+                  <div
+                    class="resource-icon-wrap"
+                    style="background: #e6efe7; color: #2e4d34"
+                  >
+                    <i class="ph-fill ph-clipboard-text"></i>
+                  </div>
+                  <i class="ph-fill ph-star" style="color: #fbbf24"></i>
+                </div>
+                <h4
+                  style="
+                    margin: 0 0 0.5rem 0;
+                    font-size: 1.1rem;
+                    color: var(--primary);
+                  "
+                >
+                  Cenas y recetas antiinflamatorias
+                </h4>
+                <div
+                  style="
+                    display: flex;
+                    gap: 0.4rem;
+                    flex-wrap: wrap;
+                    margin-bottom: 1.5rem;
+                  "
+                >
+                  <span
+                    class="badge"
+                    style="background: #f3f4f6; color: #475569"
+                    >Recetas</span
+                  >
+                  <span
+                    class="badge"
+                    style="background: #fae8e8; color: #991b1b"
+                    >Menú</span
+                  >
+                </div>
+                <div
+                  style="
+                    border-top: 1px solid var(--border-color);
+                    padding-top: 1rem;
+                    margin-top: auto;
+                  "
+                >
+                  <button
+                    class="btn btn-outline"
+                    style="
+                      width: 100%;
+                      justify-content: center;
+                      padding: 0.5rem;
+                    "
+                    onclick="
+                      openModal(
+                        'view-resource',
+                        'Cenas y recetas antiinflamatorias',
+                      )
+                    "
+                  >
+                    <i class="ph ph-eye"></i> Ver contenido
+                  </button>
+                </div>
+              </div>
+
+              <!-- Recurso 2 -->
+              <div class="resource-card">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 1rem;
+                  "
+                >
+                  <div
+                    class="resource-icon-wrap"
+                    style="background: #fae8e8; color: #991b1b"
+                  >
+                    <i class="ph-fill ph-file-pdf"></i>
+                  </div>
+                  <i class="ph ph-star" style="color: var(--text-muted)"></i>
+                </div>
+                <h4
+                  style="
+                    margin: 0 0 0.5rem 0;
+                    font-size: 1.1rem;
+                    color: var(--primary);
+                  "
+                >
+                  Guía Microbiota 2026
+                </h4>
+                <div
+                  style="
+                    display: flex;
+                    gap: 0.4rem;
+                    flex-wrap: wrap;
+                    margin-bottom: 1.5rem;
+                  "
+                >
+                  <span
+                    class="badge"
+                    style="background: #f3f4f6; color: #475569"
+                    >Nutrición</span
+                  >
+                  <span
+                    class="badge"
+                    style="background: #f3e8ff; color: #7c3aed"
+                    >PDF</span
+                  >
+                </div>
+                <div
+                  style="
+                    border-top: 1px solid var(--border-color);
+                    padding-top: 1rem;
+                    margin-top: auto;
+                  "
+                >
+                  <button
+                    class="btn btn-outline"
+                    style="
+                      width: 100%;
+                      justify-content: center;
+                      padding: 0.5rem;
+                    "
+                    onclick="openModal('view-resource', 'Guía Microbiota 2026')"
+                  >
+                    <i class="ph ph-eye"></i> Ver contenido
+                  </button>
+                </div>
+              </div>
+
+              <!-- Recurso 3 -->
+              <div class="resource-card">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 1rem;
+                  "
+                >
+                  <div
+                    class="resource-icon-wrap"
+                    style="background: #e0e7ff; color: #4f46e5"
+                  >
+                    <i class="ph-fill ph-video-camera"></i>
+                  </div>
+                  <i class="ph ph-star" style="color: var(--text-muted)"></i>
+                </div>
+                <h4
+                  style="
+                    margin: 0 0 0.5rem 0;
+                    font-size: 1.1rem;
+                    color: var(--primary);
+                  "
+                >
+                  Masterclass Permeabilidad
+                </h4>
+                <div
+                  style="
+                    display: flex;
+                    gap: 0.4rem;
+                    flex-wrap: wrap;
+                    margin-bottom: 1.5rem;
+                  "
+                >
+                  <span
+                    class="badge"
+                    style="background: #f3f4f6; color: #475569"
+                    >Clínico</span
+                  >
+                  <span
+                    class="badge"
+                    style="background: #e0e7ff; color: #4f46e5"
+                    >Vídeo</span
+                  >
+                </div>
+                <div
+                  style="
+                    border-top: 1px solid var(--border-color);
+                    padding-top: 1rem;
+                    margin-top: auto;
+                  "
+                >
+                  <button
+                    class="btn btn-outline"
+                    style="
+                      width: 100%;
+                      justify-content: center;
+                      padding: 0.5rem;
+                    "
+                    onclick="
+                      openModal('view-resource', 'Masterclass Permeabilidad')
+                    "
+                  >
+                    <i class="ph ph-eye"></i> Ver contenido
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. STUDENT: GAMIFICATION (Retos) -->
+      <section id="student-gamification" class="view-section">
+        <div class="container">
+          <!-- ESTADO A: GRID DE RETOS DEL ALUMNO -->
+          <div
+            id="challenges-grid"
+            style="display: flex; flex-direction: column; gap: 2rem"
+          >
+            <div>
+              <h2
+                style="
+                  color: var(--primary);
+                  margin-bottom: 0.5rem;
+                  margin-top: 0;
+                "
+              >
+                Mis Retos Activos
+              </h2>
+              <p
+                style="color: var(--text-muted); font-size: 0.95rem; margin: 0"
+              >
+                Supera las misiones diarias, desbloquea contenido y comparte tus
+                resultados.
+              </p>
+            </div>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2rem;
+              "
+            >
+              <!-- Reto 1: En Preparación -->
+              <div
+                class="card"
+                style="
+                  padding: 0;
+                  overflow: hidden;
+                  border: 1px solid #fed7aa;
+                  display: flex;
+                  flex-direction: column;
+                  box-shadow: var(--shadow-sm);
+                "
+              >
+                <div
+                  style="
+                    background: #fff7ed;
+                    border-bottom: 1px solid #ffedd5;
+                    padding: 1.5rem;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 1rem;
+                    "
+                  >
+                    <span
+                      class="badge"
+                      style="
+                        background: #f97316;
+                        color: white;
+                        font-weight: 600;
+                      "
+                      ><i class="ph-fill ph-fire"></i> Fase de
+                      Calentamiento</span
+                    >
+                    <span
+                      style="
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        color: #ea580c;
+                      "
+                      >21 Días</span
+                    >
+                  </div>
+                  <h3
+                    style="
+                      margin: 0 0 0.5rem 0;
+                      color: #9a3412;
+                      font-size: 1.15rem;
+                    "
+                  >
+                    Reto: Reset Intestinal Otoño
+                  </h3>
+                  <p style="margin: 0; font-size: 0.85rem; color: #c2410c">
+                    Empieza el 1 de Octubre de 2026
+                  </p>
+                </div>
+                <div
+                  style="
+                    padding: 1.5rem;
+                    background: white;
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <p
+                    style="
+                      color: var(--text-muted);
+                      font-size: 0.9rem;
+                      margin-bottom: 1.5rem;
+                      line-height: 1.5;
+                    "
+                  >
+                    El contenido se desbloqueará día a día. Ya puedes descargar
+                    la lista de la compra y ver el vídeo de bienvenida.
+                  </p>
+                  <button
+                    class="btn btn-outline"
+                    style="
+                      width: 100%;
+                      border-color: #f97316;
+                      color: #ea580c;
+                      margin-top: auto;
+                    "
+                    onclick="
+                      showToast('Descargando Lista de la Compra...', 'success')
+                    "
+                  >
+                    <i class="ph ph-download-simple"></i> Bajar Lista de la
+                    Compra
+                  </button>
+                </div>
+              </div>
+
+              <!-- Reto 2: Activo (Desayunos SOP) -->
+              <div
+                class="card"
+                style="
+                  padding: 0;
+                  overflow: hidden;
+                  border: 1px solid var(--success);
+                  display: flex;
+                  flex-direction: column;
+                  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+                "
+              >
+                <div
+                  style="
+                    background: #ecfdf5;
+                    border-bottom: 1px solid #d1fae5;
+                    padding: 1.5rem;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 1rem;
+                    "
+                  >
+                    <span
+                      class="badge"
+                      style="
+                        background: var(--success);
+                        color: white;
+                        font-weight: 600;
+                      "
+                      ><i class="ph-fill ph-play-circle"></i> En Curso (Día
+                      5)</span
+                    >
+                    <span
+                      style="
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        color: var(--success);
+                      "
+                      >7 Días</span
+                    >
+                  </div>
+                  <h3
+                    style="
+                      margin: 0 0 0.5rem 0;
+                      color: #065f46;
+                      font-size: 1.15rem;
+                    "
+                  >
+                    Reto Express: Desayunos SOP
+                  </h3>
+                  <p style="margin: 0; font-size: 0.85rem; color: #047857">
+                    ¡Hoy toca subir tu receta al foro!
+                  </p>
+                </div>
+                <div
+                  style="
+                    padding: 1.5rem;
+                    background: white;
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      background: var(--bg-body);
+                      padding: 0.75rem;
+                      border: 1px solid var(--border-color);
+                      border-radius: 8px;
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    <i
+                      class="ph-fill ph-chat-circle-text"
+                      style="color: var(--accent); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <strong
+                        style="
+                          display: block;
+                          font-size: 0.85rem;
+                          color: var(--primary);
+                        "
+                        >Foro On Fire 🔥</strong
+                      >
+                      <span style="font-size: 0.75rem; color: var(--text-muted)"
+                        >Tus compañeras han subido 124 mensajes hoy.</span
+                      >
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-primary"
+                    style="
+                      width: 100%;
+                      background: var(--success);
+                      border-color: var(--success);
+                      margin-top: auto;
+                    "
+                    onclick="openStudentChallenge()"
+                  >
+                    <i class="ph-fill ph-lightning"></i> Ir al Reto de Hoy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ESTADO B: REPRODUCTOR DEL RETO (Tu diseño gamificado) -->
+          <div
+            id="challenge-player"
+            style="
+              display: none;
+              flex-direction: column;
+              gap: 2rem;
+              padding-bottom: 3rem;
+            "
+          >
+            <div>
+              <button
+                class="btn btn-outline"
+                style="
+                  padding: 0.4rem 0.8rem;
+                  font-size: 0.85rem;
+                  margin-top: 1rem;
+                "
+                onclick="closeStudentChallenge()"
+              >
+                <i class="ph ph-arrow-left"></i> Volver a Mis Retos
+              </button>
+            </div>
+
+            <!-- Cabecera y Cuadrícula de Días -->
+            <div class="card" style="text-align: center; padding: 2rem">
+              <h2 style="color: var(--primary); margin-top: 0">
+                Reto Express: Desayunos SOP
+              </h2>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.95rem;
+                  margin-bottom: 2rem;
+                "
+              >
+                Día 5: Desayunos sin picos de glucosa. Visualiza la lección y
+                cumple la misión en el foro.
+              </p>
+
+              <div
+                style="
+                  display: flex;
+                  gap: 1rem;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                "
+              >
+                <!-- Días Completados -->
+                <div
+                  class="card day-card"
+                  style="
+                    padding: 1rem;
+                    width: 90px;
+                    text-align: center;
+                    border: 2px solid var(--success);
+                    background: #f0fdf4;
+                    cursor: pointer;
+                  "
+                  onclick="changeChallengeDay(1, this)"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="color: var(--success); font-size: 1.8rem"
+                  ></i
+                  ><br /><span
+                    style="
+                      font-size: 0.85rem;
+                      font-weight: 600;
+                      color: var(--text-main);
+                    "
+                    >Día 1</span
+                  >
+                </div>
+                <div
+                  class="card day-card"
+                  style="
+                    padding: 1rem;
+                    width: 90px;
+                    text-align: center;
+                    border: 2px solid var(--success);
+                    background: #f0fdf4;
+                    cursor: pointer;
+                  "
+                  onclick="changeChallengeDay(2, this)"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="color: var(--success); font-size: 1.8rem"
+                  ></i
+                  ><br /><span
+                    style="
+                      font-size: 0.85rem;
+                      font-weight: 600;
+                      color: var(--text-main);
+                    "
+                    >Día 2</span
+                  >
+                </div>
+                <div
+                  class="card day-card"
+                  style="
+                    padding: 1rem;
+                    width: 90px;
+                    text-align: center;
+                    border: 2px solid var(--success);
+                    background: #f0fdf4;
+                    cursor: pointer;
+                  "
+                  onclick="changeChallengeDay(3, this)"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="color: var(--success); font-size: 1.8rem"
+                  ></i
+                  ><br /><span
+                    style="
+                      font-size: 0.85rem;
+                      font-weight: 600;
+                      color: var(--text-main);
+                    "
+                    >Día 3</span
+                  >
+                </div>
+                <div
+                  class="card day-card"
+                  style="
+                    padding: 1rem;
+                    width: 90px;
+                    text-align: center;
+                    border: 2px solid var(--success);
+                    background: #f0fdf4;
+                    cursor: pointer;
+                  "
+                  onclick="changeChallengeDay(4, this)"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="color: var(--success); font-size: 1.8rem"
+                  ></i
+                  ><br /><span
+                    style="
+                      font-size: 0.85rem;
+                      font-weight: 600;
+                      color: var(--text-main);
+                    "
+                    >Día 4</span
+                  >
+                </div>
+                <!-- Día Actual (Fuego) -->
+                <div
+                  class="card day-card"
+                  id="day-5-card"
+                  style="
+                    padding: 1rem;
+                    width: 90px;
+                    text-align: center;
+                    border: 2px solid var(--accent);
+                    transform: scale(1.1);
+                    box-shadow: var(--shadow-sm);
+                    z-index: 10;
+                    cursor: pointer;
+                  "
+                  onclick="changeChallengeDay(5, this)"
+                >
+                  <i
+                    class="ph-fill ph-fire"
+                    style="color: var(--warning); font-size: 2.2rem"
+                  ></i
+                  ><br /><strong
+                    style="font-size: 0.85rem; color: var(--accent)"
+                    >Día 5</strong
+                  >
+                </div>
+                <!-- Días Bloqueados -->
+                <div
+                  class="card"
+                  style="
+                    padding: 1rem;
+                    width: 90px;
+                    text-align: center;
+                    opacity: 0.6;
+                    background: var(--bg-body);
+                    cursor: not-allowed;
+                  "
+                  onclick="showToast('Disponible mañana', 'warning')"
+                >
+                  <i
+                    class="ph-fill ph-lock"
+                    style="font-size: 1.8rem; color: var(--text-muted)"
+                  ></i
+                  ><br /><span
+                    style="font-size: 0.85rem; color: var(--text-muted)"
+                    >Día 6</span
+                  >
+                </div>
+                <div
+                  class="card"
+                  style="
+                    padding: 1rem;
+                    width: 90px;
+                    text-align: center;
+                    opacity: 0.6;
+                    background: var(--bg-body);
+                    cursor: not-allowed;
+                  "
+                  onclick="showToast('Disponible en 2 días', 'warning')"
+                >
+                  <i
+                    class="ph-fill ph-lock"
+                    style="font-size: 1.8rem; color: var(--text-muted)"
+                  ></i
+                  ><br /><span
+                    style="font-size: 0.85rem; color: var(--text-muted)"
+                    >Día 7</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Contenido Dinámico del Día -->
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 2rem;
+                align-items: start;
+              "
+              class="course-player-grid"
+            >
+              <!-- Izquierda: Vídeo y Texto -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem">
+                <div
+                  style="
+                    background: #0f172a;
+                    border-radius: var(--radius-lg);
+                    height: 350px;
+                    overflow: hidden;
+                    box-shadow: var(--shadow-sm);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                  "
+                >
+                  <!-- Simulamos el vídeo con un play gigante -->
+                  <img
+                    src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80"
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      opacity: 0.6;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                    "
+                  />
+                  <i
+                    class="ph-fill ph-play-circle"
+                    style="
+                      font-size: 5rem;
+                      color: white;
+                      cursor: pointer;
+                      z-index: 10;
+                      transition: transform 0.2s;
+                    "
+                    onmouseover="this.style.transform = 'scale(1.1)'"
+                    onmouseout="this.style.transform = 'scale(1)'"
+                    onclick="
+                      showToast('Reproduciendo lección del día...', 'success')
+                    "
+                  ></i>
+                </div>
+                <div class="card">
+                  <h3
+                    style="color: var(--primary); margin: 0 0 1rem 0"
+                    id="challenge-content-title"
+                  >
+                    Día 5: La regla del 30-30
+                  </h3>
+                  <p
+                    style="
+                      color: var(--text-muted);
+                      font-size: 0.95rem;
+                      line-height: 1.6;
+                      margin: 0;
+                    "
+                    id="challenge-content-desc"
+                  >
+                    El desayuno es la comida más importante para controlar los
+                    picos de insulina en SOP. Hoy aprenderás a incluir 30g de
+                    proteína en los primeros 30 minutos tras despertar para
+                    estabilizar tus hormonas.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Derecha: Misión y Descargables -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem">
+                <!-- Misión orientada al foro -->
+                <div
+                  class="card"
+                  style="background: #fff7ed; border: 1px solid #fed7aa"
+                >
+                  <h4
+                    style="
+                      margin-top: 0;
+                      color: #ea580c;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                    "
+                  >
+                    <i class="ph-fill ph-target"></i> Tu Misión de Hoy
+                  </h4>
+                  <p
+                    style="
+                      font-size: 0.9rem;
+                      color: var(--text-main);
+                      margin-bottom: 1.5rem;
+                    "
+                  >
+                    Prepara un desayuno siguiendo la regla 30-30, hazle una foto
+                    atractiva y compártela en la comunidad para inspirar a tus
+                    compañeras.
+                  </p>
+
+                  <button
+                    class="btn btn-primary"
+                    style="
+                      width: 100%;
+                      background: #ea580c;
+                      border-color: #ea580c;
+                      justify-content: center;
+                    "
+                    onclick="
+                      switchTab('student-community');
+                      showToast('Cargando el hilo del reto...', 'success');
+                    "
+                  >
+                    <i class="ph-fill ph-camera"></i> Subir Foto al Foro
+                  </button>
+                </div>
+
+                <!-- Descargable -->
+                <div class="card">
+                  <h4
+                    style="
+                      margin-top: 0;
+                      color: var(--primary);
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                    "
+                  >
+                    <i class="ph-fill ph-download-simple"></i> Plantilla Diaria
+                  </h4>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      background: var(--bg-body);
+                      padding: 0.75rem;
+                      border-radius: 8px;
+                      margin-top: 1rem;
+                      border: 1px solid var(--border-color);
+                    "
+                  >
+                    <div
+                      style="display: flex; align-items: center; gap: 0.5rem"
+                    >
+                      <i
+                        class="ph-fill ph-file-pdf"
+                        style="color: var(--danger); font-size: 1.25rem"
+                      ></i>
+                      <span style="font-size: 0.85rem; font-weight: 600"
+                        >Checklist_Desayuno.pdf</span
+                      >
+                    </div>
+                    <i
+                      class="ph ph-download-simple"
+                      style="
+                        cursor: pointer;
+                        color: var(--text-muted);
+                        font-size: 1.1rem;
+                      "
+                      onclick="showToast('Descargando PDF...', 'success')"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. STUDENT: COMMUNITY (Foros) -->
+      <section id="student-community" class="view-section">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 2rem;
+              flex-wrap: wrap;
+              gap: 1rem;
+            "
+          >
+            <div>
+              <h2 style="margin-bottom: 0.5rem; color: var(--primary)">
+                Foro Clínico Privado
+              </h2>
+              <p
+                style="color: var(--text-muted); margin: 0; font-size: 0.95rem"
+              >
+                Comparte casos, resuelve dudas y sube tus avances de los retos.
+              </p>
+            </div>
+            <button
+              class="btn btn-primary"
+              onclick="openModal('new-thread')"
+              style="background: #2563eb; border-color: #2563eb"
+            >
+              <i class="ph ph-plus"></i> Nuevo Hilo
+            </button>
+          </div>
+
+          <div
+            class="card"
+            style="
+              padding: 0;
+              overflow-x: auto;
+              border: 1px solid var(--border-color);
+              border-radius: var(--radius-lg);
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <table
+              class="data-table"
+              style="width: 100%; border-collapse: collapse; min-width: 700px"
+            >
+              <thead
+                style="
+                  background: var(--bg-body);
+                  color: var(--text-muted);
+                  text-align: left;
+                  border-bottom: 1px solid var(--border-color);
+                "
+              >
+                <tr>
+                  <th style="padding: 1.25rem 1.5rem; font-weight: 600">
+                    Tema de Discusión
+                  </th>
+                  <th
+                    style="
+                      padding: 1.25rem 1.5rem;
+                      font-weight: 600;
+                      text-align: center;
+                    "
+                  >
+                    Respuestas
+                  </th>
+                  <th style="padding: 1.25rem 1.5rem; font-weight: 600">
+                    Última Actividad
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Hilo 1: El del Reto -->
+                <tr
+                  style="
+                    cursor: pointer;
+                    transition: background 0.2s;
+                    border-bottom: 1px solid var(--border-color);
+                  "
+                  onmouseover="this.style.background = 'var(--bg-body)'"
+                  onmouseout="this.style.background = 'transparent'"
+                  onclick="
+                    openModal(
+                      'view-student-thread',
+                      'Reto Express: Mis desayunos SOP (¡Sube tu foto!)',
+                    )
+                  "
+                >
+                  <td style="padding: 1.25rem 1.5rem">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        margin-bottom: 0.25rem;
+                      "
+                    >
+                      <span
+                        class="badge"
+                        style="
+                          background: #fce7f3;
+                          color: #db2777;
+                          padding: 0.2rem 0.5rem;
+                          font-size: 0.7rem;
+                        "
+                        ><i class="ph-fill ph-fire"></i> Reto Activo</span
+                      >
+                      <strong style="color: var(--primary); font-size: 1rem"
+                        >Reto Express: Mis desayunos SOP (¡Sube tu
+                        foto!)</strong
+                      >
+                    </div>
+                    <span style="font-size: 0.85rem; color: var(--text-muted)"
+                      >Por Dra. Ana Martí • General</span
+                    >
+                  </td>
+                  <td style="padding: 1.25rem 1.5rem; text-align: center">
+                    <span
+                      class="badge active"
+                      style="
+                        background: #d1fae5;
+                        color: #065f46;
+                        padding: 0.25rem 0.75rem;
+                        border-radius: 999px;
+                        font-weight: 600;
+                      "
+                      >124</span
+                    >
+                  </td>
+                  <td
+                    style="
+                      padding: 1.25rem 1.5rem;
+                      color: var(--text-muted);
+                      font-size: 0.9rem;
+                    "
+                  >
+                    Hace 5 min
+                  </td>
+                </tr>
+
+                <!-- Hilo 2: Duda Clínica -->
+                <tr
+                  style="
+                    cursor: pointer;
+                    transition: background 0.2s;
+                    border-bottom: 1px solid var(--border-color);
+                  "
+                  onmouseover="this.style.background = 'var(--bg-body)'"
+                  onmouseout="this.style.background = 'transparent'"
+                  onclick="
+                    openModal(
+                      'view-student-thread',
+                      'Duda sobre ajuste de macros en ERC Estadio 3',
+                    )
+                  "
+                >
+                  <td style="padding: 1.25rem 1.5rem">
+                    <strong
+                      style="
+                        color: var(--primary);
+                        font-size: 1rem;
+                        display: block;
+                        margin-bottom: 0.25rem;
+                      "
+                      >Duda sobre ajuste de macros en ERC Estadio 3</strong
+                    >
+                    <span style="font-size: 0.85rem; color: var(--text-muted)"
+                      >Por Dra. Elena R. • Módulo Nefrología</span
+                    >
+                  </td>
+                  <td style="padding: 1.25rem 1.5rem; text-align: center">
+                    <span
+                      class="badge active"
+                      style="
+                        background: #d1fae5;
+                        color: #065f46;
+                        padding: 0.25rem 0.75rem;
+                        border-radius: 999px;
+                        font-weight: 600;
+                      "
+                      >14</span
+                    >
+                  </td>
+                  <td
+                    style="
+                      padding: 1.25rem 1.5rem;
+                      color: var(--text-muted);
+                      font-size: 0.9rem;
+                    "
+                  >
+                    Hace 2 horas
+                  </td>
+                </tr>
+
+                <!-- Hilo 3 -->
+                <tr
+                  style="cursor: pointer; transition: background 0.2s"
+                  onmouseover="this.style.background = 'var(--bg-body)'"
+                  onmouseout="this.style.background = 'transparent'"
+                  onclick="
+                    openModal(
+                      'view-student-thread',
+                      '¿Software recomendado para anamnesis rápida?',
+                    )
+                  "
+                >
+                  <td style="padding: 1.25rem 1.5rem">
+                    <strong
+                      style="
+                        color: var(--primary);
+                        font-size: 1rem;
+                        display: block;
+                        margin-bottom: 0.25rem;
+                      "
+                      >¿Software recomendado para anamnesis rápida?</strong
+                    >
+                    <span style="font-size: 0.85rem; color: var(--text-muted)"
+                      >Por Lic. Martín S. • General</span
+                    >
+                  </td>
+                  <td style="padding: 1.25rem 1.5rem; text-align: center">
+                    <span
+                      class="badge pending"
+                      style="
+                        background: #fef3c7;
+                        color: #92400e;
+                        padding: 0.25rem 0.75rem;
+                        border-radius: 999px;
+                        font-weight: 600;
+                      "
+                      >3</span
+                    >
+                  </td>
+                  <td
+                    style="
+                      padding: 1.25rem 1.5rem;
+                      color: var(--text-muted);
+                      font-size: 0.9rem;
+                    "
+                  >
+                    Ayer
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. STUDENT: HELPDESK (Soporte) -->
+      <section id="student-helpdesk" class="view-section">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 2rem;
+              flex-wrap: wrap;
+              gap: 1rem;
+            "
+          >
+            <h2>Soporte Técnico</h2>
+            <button class="btn btn-primary" onclick="openModal('reply-ticket')">
+              <i class="ph ph-ticket"></i> Nuevo Ticket
+            </button>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 1rem;
+                "
+              >
+                <span
+                  class="badge pending"
+                  style="
+                    background: #fef3c7;
+                    color: #92400e;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 999px;
+                    font-weight: 600;
+                    font-size: 0.85rem;
+                  "
+                  >En Revisión</span
+                >
+                <span style="color: var(--text-muted); font-size: 0.85rem"
+                  >#TK-8492</span
+                >
+              </div>
+              <h4>Problema con descarga de certificado</h4>
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: var(--text-muted);
+                  margin-top: 0.5rem;
+                "
+              >
+                El sistema indica error 404 al generar el PDF de pediatría.
+              </p>
+              <button
+                class="btn btn-outline"
+                style="width: 100%; margin-top: 1.5rem; padding: 0.5rem"
+                onclick="openModal('reply-ticket')"
+              >
+                Ver y Responder (1)
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SISTEMA UNIVERSAL DE MODALES REALES -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal-box" id="modal-box-dynamic">
+        <!-- ¡AQUÍ FALTABA EL ID! -->
+        <div class="modal-header">
+          <h3 id="modal-title">Título del Modal</h3>
+          <i class="ph ph-x modal-close" onclick="closeModal()"></i>
+        </div>
+        <div id="modal-body">
+          <!-- El contenido se inyecta por JS dinámicamente -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <script>
+      // Navegación SPA Estudiante
+      function switchTab(tabId) {
+        const sections = document.querySelectorAll(
+          "#standard-layout .view-section",
+        );
+        sections.forEach((sec) => sec.classList.remove("active"));
+
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add("active");
+
+        const links = document.querySelectorAll(`#nav-student a`);
+        links.forEach((link) => {
+          link.classList.remove("active");
+          if (
+            link.getAttribute("onclick") &&
+            link.getAttribute("onclick").includes(tabId)
+          )
+            link.classList.add("active");
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        document.getElementById("mobile-menu").classList.remove("open");
+        document.getElementById("mobile-overlay").classList.remove("active");
+      }
+
+      // Menú Móvil
+      function toggleMobileMenu() {
+        document.getElementById("mobile-menu").classList.toggle("open");
+        document.getElementById("mobile-overlay").classList.toggle("active");
+      }
+
+      function updateMobileMenuLinks() {
+        const navGroup = document.getElementById(`nav-student`);
+        const mobileLinks = document.getElementById("mobile-links");
+        
+        if (navGroup && mobileLinks) {
+          mobileLinks.innerHTML = navGroup.innerHTML;
+          const links = mobileLinks.querySelectorAll("a, button");
+          
+          links.forEach((link) => {
+            link.addEventListener("click", (e) => {
+              
+              // 1. Comprobamos si hemos pinchado en el botón que abre el submenú
+              const submenu = link.nextElementSibling;
+              if (submenu && submenu.classList.contains("nav-dropdown-menu")) {
+                e.preventDefault(); // Evitamos que salte hacia arriba
+                
+                // Abrimos/Cerramos el submenú
+                submenu.classList.toggle("open-mobile-submenu");
+                
+                // Hacemos que la flechita gire 180 grados con estilo
+                const icon = link.querySelector("i.ph-caret-down");
+                if(icon) {
+                   icon.style.transform = submenu.classList.contains("open-mobile-submenu") ? "rotate(180deg)" : "rotate(0deg)";
+                   icon.style.transition = "transform 0.3s";
+                }
+                return; // CORTAMOS AQUÍ para que el menú principal NO se cierre
+              }
+
+              // 2. Si es un enlace normal (Mis Cursos, Retos, etc...), cerramos el menú
+              document.getElementById("mobile-menu").classList.remove("open");
+              document.getElementById("mobile-overlay").classList.remove("active");
+            });
+          });
+        }
+      }
+
+      // REDIRECCIÓN A INICIO (Logout)
+      function logout() {
+        showToast("Cerrando sesión...", "warning");
+        setTimeout(() => {
+          window.location.href = "index.html"; // Redirige al público
+        }, 800);
+      }
+
+      // Toasts
+      function showToast(message, type = "success") {
+        const container = document.getElementById("toast-container");
+        const toast = document.createElement("div");
+        toast.className = `toast ${type}`;
+        let icon =
+          type === "warning"
+            ? "ph-warning"
+            : type === "danger"
+              ? "ph-x-circle"
+              : "ph-check-circle";
+        toast.innerHTML = `<i class="ph-fill ${icon}" style="color: var(--${type});"></i><span style="font-weight: 500;">${message}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.animation = "slideOut 0.3s forwards";
+          setTimeout(() => {
+            if (container.contains(toast)) container.removeChild(toast);
+          }, 300);
+        }, 3000);
+      }
+
+      // Modales (Foro y Tickets)
+      function openModal(type, extraData = "") {
+        const overlay = document.getElementById("modal-overlay");
+        const title = document.getElementById("modal-title");
+        const body = document.getElementById("modal-body");
+        const modalBox = document.getElementById("modal-box-dynamic");
+
+        if (modalBox) modalBox.style.maxWidth = "500px";
+
+        if (type === "new-thread") {
+          title.innerText = "Crear Hilo de Debate";
+          body.innerHTML = `
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--primary);">Asunto Clínico</label>
+                        <input type="text" class="form-control" style="width: 100%; padding: 0.75rem; border: 1.5px solid var(--border-color); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem; outline: none; background: var(--bg-body);" placeholder="Ej: Duda sobre SIBO">
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="closeModal(); showToast('Debate publicado en la comunidad', 'success')">Publicar en Comunidad</button>
+                `;
+        } else if (type === "reply-ticket") {
+          title.innerText = "Crear / Responder Ticket";
+          body.innerHTML = `
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--primary);">Mensaje para el Departamento</label>
+                        <textarea class="form-control" rows="4" style="width: 100%; padding: 0.75rem; border: 1.5px solid var(--border-color); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem; outline: none; background: var(--bg-body);" placeholder="Explica la incidencia..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="closeModal(); showToast('Ticket enviado al equipo de soporte', 'success')">Enviar</button>
+                `;
+        } else if (type === "view-student-thread") {
+          modalBox.style.maxWidth = "900px";
+          title.innerText = extraData;
+
+          body.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Contenedor de la conversación con scroll -->
+                <div style="max-height: 55vh; overflow-y: auto; padding-right: 0.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                    
+                    <!-- Mensaje Inicial -->
+                    <div style="background: #eff6ff; padding: 1.25rem; border-radius: 8px; border: 1px solid #bfdbfe;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 36px; height: 36px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem;">AM</div>
+                                <div>
+                                    <strong style="font-size: 0.95rem; color: var(--primary);">Dra. Ana Martí <i class="ph-fill ph-check-circle" style="color: #2563eb;" title="Profesor"></i></strong>
+                                    <span style="font-size: 0.8rem; color: #3b82f6; display: block;">Ayer, 08:00 AM • Creador del hilo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--text-main); margin: 0; line-height: 1.6;">
+                            ¡Buenos días a todos! Llegamos al Día 5 del reto. La regla del 30-30 es vital. Subid aquí una foto de vuestros desayunos de hoy indicando brevemente los ingredientes. ¡Tengo muchas ganas de ver vuestras creaciones! 🍳🥑
+                        </p>
+                    </div>
+
+                    <!-- Mensaje Compañero -->
+                    <div style="background: white; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); margin-left: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 36px; height: 36px; background: #FEF3C7; color: #D97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem;">MF</div>
+                                <div>
+                                    <strong style="font-size: 0.95rem; color: var(--primary);">Lic. María Fernández</strong>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Ayer, 09:15 AM</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="background: transparent; color: var(--text-muted); padding: 0.2rem;" onclick="showToast('Comentario reportado al equipo de moderación', 'warning')" title="Reportar contenido inapropiado">
+                                <i class="ph ph-flag"></i>
+                            </button>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--text-main); margin: 0 0 1rem 0; line-height: 1.6;">
+                            ¡Aquí va el mío! Huevos revueltos con medio aguacate y un puñadito de semillas de calabaza. ¡Súper saciante!
+                        </p>
+                        <div style="width: 200px; height: 150px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);">
+                            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Desayuno">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caja para responder -->
+                <div style="background: var(--bg-body); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <div style="display: flex; gap: 0.75rem; flex-direction: column;">
+                        <textarea class="form-control" rows="3" style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 0.95rem; outline: none; resize: vertical;" placeholder="Escribe tu respuesta o comparte tus resultados..."></textarea>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="showToast('Abriendo galería para adjuntar imagen...', 'success')">
+                                <i class="ph ph-image"></i> Adjuntar Foto
+                            </button>
+                            <button class="btn btn-primary" style="background: #2563eb; border-color: #2563eb; padding: 0.6rem 1.25rem;" onclick="showToast('Tu mensaje se ha publicado correctamente', 'success'); closeModal();">
+                                Publicar <i class="ph-fill ph-paper-plane-tilt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          `;
+        }
+
+        if (overlay) overlay.classList.add("active");
+      }
+
+      function closeModal() {
+        document.getElementById("modal-overlay").classList.remove("active");
+      }
+      document
+        .getElementById("modal-overlay")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeModal();
+        });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        updateMobileMenuLinks();
+      });
+
+      // ==========================================
+      // LÓGICA DEL REPRODUCTOR (VISTA ALUMNO)
+      // ==========================================
+      const previewLessons = [
+        {
+          module: "MÓDULO 1: MICROBIOTA E INFLAMACIÓN",
+          title: "1.1 Fisiopatología de la permeabilidad intestinal",
+          desc: `
+            <p>La alteración de la barrera epitelial intestinal constituye uno de los desencadenantes fisiopatológicos centrales en el desarrollo de inflamación crónica de bajo grado y autoinmunidad sistémica.</p>
+            <div class="callout-box callout-info" style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+              <strong>Perla Clínica:</strong> La zonulina es el principal modulador endógeno reversible de las uniones estrechas.
+            </div>
+            <h3>Tabla de Biomarcadores Diagnósticos</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.85rem;">
+              <tr style="background: var(--bg-body); text-align: left;">
+                <th style="padding: 0.75rem;">Biomarcador</th>
+                <th style="padding: 0.75rem;">Muestra</th>
+                <th style="padding: 0.75rem;">Rango Objetivo</th>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Zonulina Fecal</strong></td>
+                <td style="padding: 0.75rem;">Heces</td>
+                <td style="padding: 0.75rem;">&lt; 30 ng/mL</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem;"><strong>Calprotectina</strong></td>
+                <td style="padding: 0.75rem;">Heces</td>
+                <td style="padding: 0.75rem;">&lt; 50 µg/g</td>
+              </tr>
+            </table>
+          `,
+          video: "https://www.youtube-nocookie.com/embed/vi2ewBozO6k",
+          pdfs: [
+            { name: "Protocolo_Permeabilidad.pdf", size: "3.2 MB" },
+            { name: "Matriz_Zonulina.pdf", size: "1.8 MB" },
+          ],
+        },
+        {
+          module: "MÓDULO 1: MICROBIOTA E INFLAMACIÓN",
+          title: "1.2 Suplementación en SOP: Inositol",
+          desc: `
+            <p>El Síndrome de Ovario Poliquístico (SOP) se asocia en más de un 70% de los casos a resistencia periférica a la insulina y estrés oxidativo ovárico.</p>
+            <div class="callout-box callout-success" style="background: #d1fae5; border-left: 4px solid #10b981; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+              <strong>Evidencia Grado A:</strong> La combinación de Mio-Inositol + D-Chiro-Inositol (40:1) mejora el índice HOMA equiparable a Metformina.
+            </div>
+          `,
+          video: "https://www.youtube-nocookie.com/embed/f2sQPwpYVUU",
+          pdfs: [{ name: "Guia_Clinica_Inositol.pdf", size: "4.1 MB" }],
+        },
+      ];
+
+      let currentPreviewIndex = 0;
+
+      function changePreviewLesson(index) {
+        currentPreviewIndex = index;
+        const lesson = previewLessons[index];
+
+        document.getElementById("preview-module-tag").innerText = lesson.module;
+        document.getElementById("preview-lesson-title").innerText =
+          lesson.title;
+        document.getElementById("preview-lesson-desc").innerHTML = lesson.desc;
+        document.getElementById("preview-video-iframe").src = lesson.video;
+        document.getElementById("lesson-counter-text").innerText =
+          `Lección ${index + 1} de ${previewLessons.length}`;
+
+        const pdfContainer = document.getElementById("preview-pdf-container");
+        pdfContainer.innerHTML = "";
+        lesson.pdfs.forEach((pdf) => {
+          pdfContainer.innerHTML += `
+            <div style="display: flex; align-items: center; justify-content: space-between; background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #ebdccc; gap: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; flex: 1;">
+                <i class="ph-fill ph-file-pdf" style="color: var(--danger); font-size: 1.5rem;"></i>
+                <div>
+                  <strong style="font-size: 0.85rem; color: var(--primary); display: block;">${pdf.name}</strong>
+                  <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">PDF • ${pdf.size}</span>
+                </div>
+              </div>
+              <button class="btn btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;" onclick="showToast('Descargando...', 'success')">
+                <i class="ph ph-download-simple"></i>
+              </button>
+            </div>
+          `;
+        });
+
+        for (let i = 0; i < previewLessons.length; i++) {
+          const item = document.getElementById(`sidebar-lesson-${i}`);
+          if (item) {
+            if (i === index) {
+              item.style.background = "var(--accent-light)";
+              item.style.border = "1px solid var(--accent)";
+              item.innerHTML = `<div style="display:flex; align-items:center; gap:0.5rem;"><i class="ph-fill ph-play-circle" style="color: var(--accent); font-size: 1.1rem;"></i><span style="font-size: 0.85rem; font-weight: 700; color: var(--accent);">${previewLessons[i].title}</span></div><span style="font-size: 0.75rem; color: var(--accent); font-weight: 600;">Actual</span>`;
+            } else {
+              item.style.background = "var(--bg-body)";
+              item.style.border = "1px solid transparent";
+              item.innerHTML = `<div style="display:flex; align-items:center; gap:0.5rem;"><i class="ph ph-circle" style="color: var(--text-muted); font-size: 1.1rem;"></i><span style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);">${previewLessons[i].title}</span></div><span style="font-size: 0.75rem; color: var(--text-muted);">45 min</span>`;
+            }
+          }
+        }
+      }
+
+      function nextPreviewLesson() {
+        if (currentPreviewIndex < previewLessons.length - 1) {
+          showToast("Lección completada", "success");
+          changePreviewLesson(currentPreviewIndex + 1);
+        } else {
+          showToast("¡Has completado el curso!", "success");
+        }
+      }
+
+      function prevPreviewLesson() {
+        if (currentPreviewIndex > 0)
+          changePreviewLesson(currentPreviewIndex - 1);
+      }
+
+      // Salto directo desde el Dashboard hasta dentro de la lección
+      function startCourseLesson(lessonIndex) {
+        // 1. Cambiamos a la pestaña de Aulas Virtuales
+        switchTab("student-courses");
+
+        // 2. Damos un micro-respiro al navegador para que pinte la pestaña antes de alterarla
+        setTimeout(() => {
+          // Ocultamos la cuadrícula de cursos y forzamos el reproductor
+          document.getElementById("lms-courses-grid").style.display = "none";
+          document.getElementById("lms-course-player").style.display = "flex";
+
+          // Cargamos la lección correspondiente (0 para Microbiota, 1 para SOP)
+          changePreviewLesson(lessonIndex);
+
+          // Hacemos scroll suave hacia arriba para que quede encajado perfecto
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 50);
+      }
+
+      function closeLmsCoursePlayer() {
+        // Buscamos el iframe con su ID correcto y lo vaciamos para que el vídeo deje de reproducirse de fondo
+        const videoFrame = document.getElementById("preview-video-iframe");
+        if (videoFrame) {
+          videoFrame.src = "";
+        }
+
+        // Volvemos a mostrar la cuadrícula y ocultamos el reproductor
+        document.getElementById("lms-courses-grid").style.display = "flex";
+        document.getElementById("lms-course-player").style.display = "none";
+
+        // Opcional: Volver arriba del todo suavemente
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // ==========================================
+      // LÓGICA DEL REPRODUCTOR DE RETOS
+      // ==========================================
+
+      function openStudentChallenge() {
+        // Oculta el grid y muestra el reproductor gamificado
+        document.getElementById("challenges-grid").style.display = "none";
+        document.getElementById("challenge-player").style.display = "flex";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function closeStudentChallenge() {
+        // Vuelve atrás
+        document.getElementById("challenges-grid").style.display = "flex";
+        document.getElementById("challenge-player").style.display = "none";
+      }
+
+      function changeChallengeDay(day, element) {
+        // 1. Quitar el estado activo (fuego/escala) de todos los días clickables
+        const dayCards = document.querySelectorAll(".day-card");
+        dayCards.forEach((card) => {
+          card.style.border = "2px solid var(--success)";
+          card.style.transform = "scale(1)";
+          card.style.boxShadow = "none";
+          card.style.zIndex = "1";
+          // Restaurar icono a check
+          card.querySelector("i").className = "ph-fill ph-check-circle";
+          card.querySelector("i").style.color = "var(--success)";
+          card.querySelector("span, strong").style.color = "var(--text-main)";
+          card.querySelector("span, strong").outerHTML =
+            `<span style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);">Día ${card.innerText.replace("Día ", "")}</span>`;
+        });
+
+        // 2. Aplicar estado activo al día seleccionado
+        element.style.border = "2px solid var(--accent)";
+        element.style.transform = "scale(1.1)";
+        element.style.boxShadow = "var(--shadow-sm)";
+        element.style.zIndex = "10";
+        element.querySelector("i").className = "ph-fill ph-fire";
+        element.querySelector("i").style.color = "var(--warning)";
+        element.querySelector("span").outerHTML =
+          `<strong style="font-size: 0.85rem; color: var(--accent);">Día ${day}</strong>`;
+
+        // 3. Cambiar el contenido dinámicamente según el día
+        const titleEl = document.getElementById("challenge-content-title");
+        const descEl = document.getElementById("challenge-content-desc");
+
+        if (day === 5) {
+          titleEl.innerText = "Día 5: La regla del 30-30";
+          descEl.innerText =
+            "El desayuno es la comida más importante para controlar los picos de insulina en SOP. Hoy aprenderás a incluir 30g de proteína en los primeros 30 minutos tras despertar.";
+        } else {
+          titleEl.innerText = `Día ${day}: Lección completada`;
+          descEl.innerText = `Has repasado el contenido del Día ${day}. Puedes volver a ver el vídeo o descargar el material adjunto cuando lo necesites.`;
+        }
+      }
+    </script>
+  </body>
+</html>

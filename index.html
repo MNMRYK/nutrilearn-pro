@@ -1,0 +1,2007 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriLearn Pro | Academia Clínica Premium</title>
+
+    <!-- Fuentes y Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tu hoja de estilos -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVEGACIÓN PÚBLICA -->
+    <header id="main-header" class="top-nav">
+      <div class="container nav-container">
+        <div class="logo">
+          <i class="ph-fill ph-pulse"></i> NutriLearn<span
+            style="font-weight: 300"
+            >Pro</span
+          >
+        </div>
+
+        <nav id="nav-public" class="nav-links nav-group active">
+          <a
+            href="#"
+            onclick="switchTab('public-home', 'public')"
+            class="active"
+            >Inicio</a
+          >
+          <a href="#" onclick="switchTab('public-services', 'public')"
+            >Servicios</a
+          >
+          <a href="#" onclick="switchTab('public-blog', 'public')">Blog</a>
+          <a href="#" onclick="switchTab('public-academia', 'public')"
+            >Academia</a
+          >
+          <button
+            onclick="switchTab('public-login', 'public')"
+            class="btn btn-primary"
+          >
+            Acceder
+          </button>
+        </nav>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE PÚBLICO -->
+    <div
+      class="mobile-overlay"
+      id="mobile-overlay"
+      onclick="toggleMobileMenu()"
+    ></div>
+    <div id="mobile-menu" class="mobile-nav">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid var(--border-color);
+          padding-bottom: 1rem;
+        "
+      >
+        <div class="logo" style="font-size: 1.25rem">
+          <i class="ph-fill ph-pulse"></i> NutriLearn<span
+            style="font-weight: 300"
+            >Pro</span
+          >
+        </div>
+        <button
+          onclick="toggleMobileMenu()"
+          style="font-size: 1.5rem; color: var(--text-muted)"
+        >
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+      <div
+        id="mobile-links"
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-top: 1rem;
+        "
+      ></div>
+    </div>
+
+    <!-- CONTENIDO GENERAL PÚBLICO -->
+    <main id="standard-layout">
+      <!-- 1. PUBLIC: HOME -->
+      <section id="public-home" class="view-section active">
+        <!-- Hero Section Original -->
+        <div class="container hero">
+          <div class="hero-content">
+            <h1>Revoluciona tu Práctica Clínica</h1>
+            <p>
+              La plataforma educativa SaaS definitiva para profesionales de la
+              nutrición. Eleva tus diagnósticos, domina la dietoterapia y
+              gestiona pacientes con evidencia científica.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+              <button
+                onclick="switchTab('public-login', 'public')"
+                class="btn btn-primary"
+              >
+                Comenzar Prueba Gratuita
+              </button>
+              <button
+                onclick="switchTab('public-services', 'public')"
+                class="btn btn-outline"
+              >
+                Ver Programa
+              </button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+              alt="Dashboard Preview"
+            />
+          </div>
+        </div>
+
+        <!-- Nueva Sección 1: Beneficios / Características -->
+        <div class="container" style="padding-top: 6rem; padding-bottom: 3rem">
+          <div class="section-header">
+            <h2>Todo lo que necesitas para destacar</h2>
+            <p>
+              No es solo teoría, es un ecosistema diseñado para aplicar en
+              consulta desde el primer día.
+            </p>
+          </div>
+          <div class="grid-3">
+            <div class="card" style="text-align: center">
+              <i
+                class="ph ph-video-camera"
+                style="
+                  font-size: 3rem;
+                  color: var(--accent);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h3 style="margin-bottom: 0.5rem">Aulas Inmersivas HD</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem">
+                Contenido audiovisual de alta calidad sin cortes, disponible
+                24/7 en cualquier dispositivo.
+              </p>
+            </div>
+            <div class="card" style="text-align: center">
+              <i
+                class="ph ph-users-three"
+                style="
+                  font-size: 3rem;
+                  color: var(--accent);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h3 style="margin-bottom: 0.5rem">Comunidad Clínica</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem">
+                Foros privados para debatir casos complejos con otros
+                profesionales y tutores expertos.
+              </p>
+            </div>
+            <div class="card" style="text-align: center">
+              <i
+                class="ph ph-medal"
+                style="
+                  font-size: 3rem;
+                  color: var(--accent);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h3 style="margin-bottom: 0.5rem">Retos Prácticos</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem">
+                Sistema gamificado para asegurar tu avance y desbloquear
+                calculadoras exclusivas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nueva Sección 2: CTA Final -->
+        <div
+          style="
+            background-color: white;
+            padding: 5rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+          "
+        >
+          <div class="container" style="text-align: center">
+            <h2
+              style="
+                font-size: 2.5rem;
+                color: var(--primary);
+                margin-bottom: 1.5rem;
+              "
+            >
+              Únete a la élite de la nutrición clínica
+            </h2>
+            <p
+              style="
+                color: var(--text-muted);
+                font-size: 1.1rem;
+                max-width: 600px;
+                margin: 0 auto 2.5rem auto;
+              "
+            >
+              Más de 1.200 nutricionistas y médicos ya están aplicando nuestros
+              protocolos para escalar sus resultados.
+            </p>
+            <button
+              onclick="switchTab('public-login', 'public')"
+              class="btn btn-primary"
+              style="padding: 1rem 2.5rem; font-size: 1.1rem"
+            >
+              Acceder a la Plataforma
+            </button>
+          </div>
+        </div>
+        <!-- Nueva Sección 3: Confianza y Autoridad (Social Proof) -->
+        <div
+          class="container"
+          style="
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+          "
+        >
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 2rem;
+            "
+          >
+            Profesionales de instituciones líderes confían en nosotros
+          </p>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 4rem;
+              flex-wrap: wrap;
+              opacity: 0.5;
+              align-items: center;
+            "
+          >
+            <!-- Puedes sustituir los H3 por etiquetas <img> con los logos reales -->
+            <h3 style="color: var(--primary); margin: 0">Hospital Clínic</h3>
+            <h3 style="color: var(--primary); margin: 0">Clínica Mayo</h3>
+            <h3 style="color: var(--primary); margin: 0">
+              Universidad Complutense
+            </h3>
+            <h3 style="color: var(--primary); margin: 0">Sociedad Nutrición</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PUBLIC: SERVICIOS -->
+      <section id="public-services" class="view-section">
+        <!-- Sub-sección 1: Tarjetas de Programas -->
+        <div class="container" style="padding-bottom: 4rem">
+          <div class="section-header">
+            <h2>Nuestros Programas Especializados</h2>
+            <p>
+              Contenido clínico estructurado para llevar tus consultas al
+              siguiente nivel.
+            </p>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <i
+                class="ph ph-dna"
+                style="
+                  font-size: 3rem;
+                  color: var(--accent);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h3>Nutrición Genómica</h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Comprende la interacción entre genes y dieta para personalizar
+                tratamientos.
+              </p>
+              <button
+                class="btn btn-outline"
+                style="width: 100%"
+                onclick="showToast('Suscripción requerida', 'warning')"
+              >
+                Ver Temario
+              </button>
+            </div>
+            <div class="card">
+              <i
+                class="ph ph-heartbeat"
+                style="
+                  font-size: 3rem;
+                  color: var(--accent);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h3>Cardiología Clínica</h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Abordaje nutricional avanzado para patologías cardiovasculares
+                agudas.
+              </p>
+              <button
+                class="btn btn-outline"
+                style="width: 100%"
+                onclick="showToast('Suscripción requerida', 'warning')"
+              >
+                Ver Temario
+              </button>
+            </div>
+            <div class="card">
+              <i
+                class="ph ph-microscope"
+                style="
+                  font-size: 3rem;
+                  color: var(--accent);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h3>Microbiota Intestinal</h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Intervención y modulación de la microbiota en enfermedades
+                crónicas.
+              </p>
+              <button
+                class="btn btn-outline"
+                style="width: 100%"
+                onclick="showToast('Suscripción requerida', 'warning')"
+              >
+                Ver Temario
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-sección 2: Metodología NutriLearn -->
+        <div
+          style="
+            background-color: white;
+            padding: 5rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+          "
+        >
+          <div class="container">
+            <div class="section-header" style="margin-bottom: 4rem">
+              <span
+                style="
+                  color: var(--accent);
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                "
+                >Metodología</span
+              >
+              <h2 style="margin-top: 0.5rem">
+                ¿Cómo funciona nuestra Academia?
+              </h2>
+              <p>
+                Diseñado para profesionales ocupados. Estudia a tu ritmo, aplica
+                al instante.
+              </p>
+            </div>
+
+            <div class="grid-3" style="gap: 3rem">
+              <div style="text-align: center; position: relative">
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: var(--accent-light);
+                    color: var(--accent);
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1.5rem auto;
+                  "
+                >
+                  1
+                </div>
+                <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem">
+                  Aprende la Ciencia
+                </h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem">
+                  Videoclases cortas en 4K analizando los últimos papers y guías
+                  clínicas internacionales.
+                </p>
+              </div>
+              <div style="text-align: center; position: relative">
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: var(--accent-light);
+                    color: var(--accent);
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1.5rem auto;
+                  "
+                >
+                  2
+                </div>
+                <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem">
+                  Descarga Recursos
+                </h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem">
+                  Obtén plantillas de anamnesis, dietas tipo y calculadoras
+                  metabólicas listas para usar.
+                </p>
+              </div>
+              <div style="text-align: center; position: relative">
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: var(--accent-light);
+                    color: var(--accent);
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1.5rem auto;
+                  "
+                >
+                  3
+                </div>
+                <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem">
+                  Debate en Comunidad
+                </h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem">
+                  Presenta tus casos clínicos más difíciles en el foro y
+                  resuélvelos con el apoyo de mentores.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-sección 3: Planes y Precios -->
+        <div class="container" style="padding-top: 5rem">
+          <div class="section-header">
+            <h2>Membresías Flexibles</h2>
+            <p>
+              Invierte en tu formación continua y rentabiliza tus consultas
+              clínicas.
+            </p>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 2rem;
+              max-width: 900px;
+              margin: 0 auto;
+            "
+          >
+            <!-- Plan Básico -->
+            <div class="card" style="display: flex; flex-direction: column">
+              <h3 style="font-size: 1.5rem; color: var(--primary)">
+                Residente
+              </h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.9rem;
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Perfecto para estudiantes de último año y recién graduados.
+              </p>
+              <div style="margin-bottom: 2rem">
+                <span
+                  style="
+                    font-size: 3rem;
+                    font-weight: 800;
+                    color: var(--text-main);
+                  "
+                  >29€</span
+                >
+                <span style="color: var(--text-muted); font-weight: 500"
+                  >/ mes</span
+                >
+              </div>
+              <ul
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
+                  margin-bottom: 2.5rem;
+                  flex-grow: 1;
+                "
+              >
+                <li
+                  style="display: flex; gap: 0.75rem; align-items: flex-start"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="
+                      color: var(--success);
+                      font-size: 1.25rem;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span style="font-size: 0.95rem; color: var(--text-muted)"
+                    >Acceso a 2 módulos base mensuales</span
+                  >
+                </li>
+                <li
+                  style="display: flex; gap: 0.75rem; align-items: flex-start"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="
+                      color: var(--success);
+                      font-size: 1.25rem;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span style="font-size: 0.95rem; color: var(--text-muted)"
+                    >Material descargable básico</span
+                  >
+                </li>
+                <li
+                  style="
+                    display: flex;
+                    gap: 0.75rem;
+                    align-items: flex-start;
+                    opacity: 0.5;
+                  "
+                >
+                  <i
+                    class="ph ph-x-circle"
+                    style="
+                      color: var(--text-muted);
+                      font-size: 1.25rem;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-size: 0.95rem;
+                      color: var(--text-muted);
+                      text-decoration: line-through;
+                    "
+                    >Soporte clínico prioritario</span
+                  >
+                </li>
+              </ul>
+              <button
+                class="btn btn-outline"
+                style="width: 100%"
+                onclick="switchTab('public-login', 'public')"
+              >
+                Empezar con Residente
+              </button>
+            </div>
+
+            <!-- Plan Premium -->
+            <div
+              class="card"
+              style="
+                border: 2px solid var(--accent);
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                transform: scale(1.02);
+                z-index: 10;
+                box-shadow: var(--shadow-lg);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: -12px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background: var(--accent);
+                  color: white;
+                  padding: 0.25rem 1rem;
+                  border-radius: var(--radius-full);
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                "
+              >
+                Más Popular
+              </div>
+              <h3 style="font-size: 1.5rem; color: var(--accent)">
+                Máster Clínico
+              </h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.9rem;
+                  margin-top: 0.5rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Para profesionales que buscan escalar su autoridad médica.
+              </p>
+              <div style="margin-bottom: 2rem">
+                <span
+                  style="
+                    font-size: 3rem;
+                    font-weight: 800;
+                    color: var(--text-main);
+                  "
+                  >79€</span
+                >
+                <span style="color: var(--text-muted); font-weight: 500"
+                  >/ mes</span
+                >
+              </div>
+              <ul
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
+                  margin-bottom: 2.5rem;
+                  flex-grow: 1;
+                "
+              >
+                <li
+                  style="display: flex; gap: 0.75rem; align-items: flex-start"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="
+                      color: var(--success);
+                      font-size: 1.25rem;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-size: 0.95rem;
+                      color: var(--text-main);
+                      font-weight: 500;
+                    "
+                    >Acceso Ilimitado a +50 módulos</span
+                  >
+                </li>
+                <li
+                  style="display: flex; gap: 0.75rem; align-items: flex-start"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="
+                      color: var(--success);
+                      font-size: 1.25rem;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-size: 0.95rem;
+                      color: var(--text-main);
+                      font-weight: 500;
+                    "
+                    >Calculadoras metabólicas premium</span
+                  >
+                </li>
+                <li
+                  style="display: flex; gap: 0.75rem; align-items: flex-start"
+                >
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="
+                      color: var(--success);
+                      font-size: 1.25rem;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span
+                    style="
+                      font-size: 0.95rem;
+                      color: var(--text-main);
+                      font-weight: 500;
+                    "
+                    >Soporte de casos en Foro Privado</span
+                  >
+                </li>
+              </ul>
+              <button
+                class="btn btn-primary"
+                style="width: 100%"
+                onclick="switchTab('public-login', 'public')"
+              >
+                Seleccionar Máster
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PUBLIC: BLOG -->
+      <section id="public-blog" class="view-section">
+        <div class="container" style="padding-bottom: 4rem">
+          <div class="section-header">
+            <h2>Actualidad Científica</h2>
+            <p>
+              Últimos artículos, revisiones de papers y guías analizadas por
+              nuestros especialistas.
+            </p>
+          </div>
+          <div class="grid-3">
+            <!-- Artículo 1 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80"
+                alt="Blog"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >ENDOCRINOLOGÍA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Nuevos enfoques en Resistencia a la Insulina y SOP
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+            <!-- Artículo 2 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"
+                alt="Blog"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >MICROBIOTA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Impacto de los Psicobióticos en la depresión mayor
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+            <!-- Artículo 3 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=400&q=80"
+                alt="Blog"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >ONCOLOGÍA CLÍNICA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Ayuno intermitente y tolerancia a la quimioterapia
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+
+            <!-- Artículo 4 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80"
+                alt="Blog FODMAP"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >GASTROENTEROLOGÍA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Dieta baja en FODMAPs: Actualización clínica 2026
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+
+            <!-- Artículo 5 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80"
+                alt="Blog"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >INMUNOLOGÍA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Vitamina D y modulación del sistema inmunitario
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+
+            <!-- Artículo 6 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=400&q=80"
+                alt="Blog"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >NUTRICIÓN DEPORTIVA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Periodización de carbohidratos en atletas de élite
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+
+            <!-- Artículo 7 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=400&q=80"
+                alt="Blog Neurología"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >NEUROLOGÍA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Dieta cetogénica como coadyuvante en epilepsia
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+
+            <!-- Artículo 8 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=400&q=80"
+                alt="Blog"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >SALUD FEMENINA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Abordaje nutricional en endometriosis y amenorrea
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+
+            <!-- Artículo 10 -->
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=400&q=80"
+                alt="Blog Pediatría"
+                style="width: 100%; height: 200px; object-fit: cover"
+              />
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  style="
+                    color: var(--accent);
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                  "
+                  >PEDIATRÍA</span
+                >
+                <h3
+                  style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4"
+                >
+                  Alergias alimentarias no mediadas por IgE en lactantes
+                </h3>
+                <div style="flex-grow: 1"></div>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 1rem; width: 100%"
+                  onclick="showToast('Lectura abierta', 'success')"
+                >
+                  Leer Artículo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 3.5 PUBLIC: ACADEMIA -->
+      <section id="public-academia" class="view-section">
+        <!-- Sub-sección 1: Cursos Destacados -->
+        <div class="container" style="padding-bottom: 5rem">
+          <div class="section-header">
+            <h2>Fórmate con los mejores expertos</h2>
+            <p>
+              Programas de especialización con casos reales y evidencia
+              científica actualizada al 2026.
+            </p>
+          </div>
+          <div class="grid-3">
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  background: #edf2eb;
+                  height: 160px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <i
+                  class="ph-fill ph-microscope"
+                  style="font-size: 4rem; color: #2e4d34"
+                ></i>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  class="badge"
+                  style="
+                    background: var(--accent-light);
+                    color: var(--accent);
+                    align-self: flex-start;
+                    margin-bottom: 1rem;
+                  "
+                  >Microbiota</span
+                >
+                <h3
+                  style="
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                    color: var(--primary);
+                  "
+                >
+                  Experto en Eje Intestino-Cerebro
+                </h3>
+                <p
+                  style="
+                    color: var(--text-muted);
+                    font-size: 0.9rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Aprende a modular la microbiota en pacientes con trastornos
+                  neurodegenerativos y depresión.
+                </p>
+                <button
+                  class="btn btn-outline"
+                  style="width: 100%; margin-top: 1rem; justify-content: center"
+                  onclick="switchTab('public-login', 'public')"
+                >
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  background: #fae8e8;
+                  height: 160px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <i
+                  class="ph-fill ph-drop"
+                  style="font-size: 4rem; color: #7f1d1d"
+                ></i>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  class="badge"
+                  style="
+                    background: #fce7f3;
+                    color: #db2777;
+                    align-self: flex-start;
+                    margin-bottom: 1rem;
+                  "
+                  >Endocrinología</span
+                >
+                <h3
+                  style="
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                    color: var(--primary);
+                  "
+                >
+                  Especialización en SOP y Fertilidad
+                </h3>
+                <p
+                  style="
+                    color: var(--text-muted);
+                    font-size: 0.9rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Protocolos de suplementación y dietoterapia para restaurar los
+                  ciclos ovulatorios.
+                </p>
+                <button
+                  class="btn btn-outline"
+                  style="width: 100%; margin-top: 1rem; justify-content: center"
+                  onclick="switchTab('public-login', 'public')"
+                >
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="card"
+              style="
+                padding: 0;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  background: #e0e7ff;
+                  height: 160px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <i
+                  class="ph-fill ph-heartbeat"
+                  style="font-size: 4rem; color: #3730a3"
+                ></i>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <span
+                  class="badge"
+                  style="
+                    background: #fef3c7;
+                    color: #d97706;
+                    align-self: flex-start;
+                    margin-bottom: 1rem;
+                  "
+                  >Cardiología</span
+                >
+                <h3
+                  style="
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                    color: var(--primary);
+                  "
+                >
+                  Nutrición en Riesgo Cardiovascular
+                </h3>
+                <p
+                  style="
+                    color: var(--text-muted);
+                    font-size: 0.9rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Abordaje dietético avanzado para la prevención y el manejo de
+                  la dislipidemia severa.
+                </p>
+                <button
+                  class="btn btn-outline"
+                  style="width: 100%; margin-top: 1rem; justify-content: center"
+                  onclick="switchTab('public-login', 'public')"
+                >
+                  Ver Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-sección 2: Recursos y Herramientas (Fondo oscuro) -->
+        <div
+          style="
+            background-color: var(--primary);
+            color: white;
+            padding: 6rem 0;
+          "
+        >
+          <div class="container grid-2-columns">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <span
+                style="
+                  color: var(--accent-light);
+                  font-weight: 700;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  font-size: 0.85rem;
+                "
+                >BIBLIOTECA INCLUIDA EN LA MEMBRESÍA</span
+              >
+              <h2 style="font-size: 2.2rem; margin: 1rem 0; line-height: 1.2">
+                Más de 500 recursos listos para tu consulta
+              </h2>
+              <p
+                style="
+                  color: rgba(255, 255, 255, 0.8);
+                  font-size: 1.05rem;
+                  margin-bottom: 2rem;
+                  line-height: 1.6;
+                "
+              >
+                Ahorra horas de trabajo. Descarga menús terapéuticos, guías de
+                suplementación y utiliza nuestras calculadoras metabólicas
+                automatizadas.
+              </p>
+              <ul
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
+                  margin-bottom: 2rem;
+                  list-style: none;
+                  padding: 0;
+                "
+              >
+                <li style="display: flex; align-items: center; gap: 0.75rem">
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="color: var(--success); font-size: 1.25rem"
+                  ></i>
+                  Plantillas de Anamnesis validadas
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.75rem">
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="color: var(--success); font-size: 1.25rem"
+                  ></i>
+                  Base de datos de interacciones fármaco-nutriente
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.75rem">
+                  <i
+                    class="ph-fill ph-check-circle"
+                    style="color: var(--success); font-size: 1.25rem"
+                  ></i>
+                  Calculadora de requerimientos específicos
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mockup visual de archivos -->
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.03);
+                padding: 2rem;
+                border-radius: var(--radius-lg);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              "
+            >
+              <div
+                style="
+                  background: white;
+                  border-radius: 8px;
+                  padding: 1rem;
+                  margin-bottom: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <i
+                  class="ph-fill ph-file-pdf"
+                  style="color: var(--danger); font-size: 2.2rem"
+                ></i>
+                <div>
+                  <strong
+                    style="
+                      color: var(--text-main);
+                      display: block;
+                      font-size: 0.95rem;
+                    "
+                    >Protocolo_SOP_2026.pdf</strong
+                  >
+                  <span style="color: var(--text-muted); font-size: 0.8rem"
+                    >Actualizado hace 2 días</span
+                  >
+                </div>
+              </div>
+              <div
+                style="
+                  background: white;
+                  border-radius: 8px;
+                  padding: 1rem;
+                  margin-bottom: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <i
+                  class="ph-fill ph-file-xls"
+                  style="color: var(--success); font-size: 2.2rem"
+                ></i>
+                <div>
+                  <strong
+                    style="
+                      color: var(--text-main);
+                      display: block;
+                      font-size: 0.95rem;
+                    "
+                    >Calculadora_Renal_V3.xlsx</strong
+                  >
+                  <span style="color: var(--text-muted); font-size: 0.8rem"
+                    >Herramienta interactiva</span
+                  >
+                </div>
+              </div>
+              <div
+                style="
+                  background: white;
+                  border-radius: 8px;
+                  padding: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <i
+                  class="ph-fill ph-file-pdf"
+                  style="color: var(--danger); font-size: 2.2rem"
+                ></i>
+                <div>
+                  <strong
+                    style="
+                      color: var(--text-main);
+                      display: block;
+                      font-size: 0.95rem;
+                    "
+                    >Interacciones_Onco.pdf</strong
+                  >
+                  <span style="color: var(--text-muted); font-size: 0.8rem"
+                    >Guía de consulta rápida</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-sección 3: Testimonios (Comunidad) -->
+        <div class="container" style="padding: 5rem 0; text-align: center">
+          <div class="section-header" style="margin-bottom: 3rem">
+            <h2>Nunca volverás a pasar consulta en soledad</h2>
+            <p>
+              Una comunidad activa de profesionales debatiendo casos reales
+              diarios.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 2rem;
+              flex-wrap: wrap;
+            "
+          >
+            <div
+              class="card"
+              style="
+                max-width: 400px;
+                text-align: left;
+                background: var(--bg-card);
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  margin-bottom: 1rem;
+                "
+              >
+                <!-- Avatar usando iniciales como hemos hecho antes -->
+                <div
+                  style="
+                    width: 45px;
+                    height: 45px;
+                    background: #e0e7ff;
+                    color: #4f46e5;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                  "
+                >
+                  LJ
+                </div>
+                <div>
+                  <strong style="display: block; color: var(--primary)"
+                    >Dra. Laura Jiménez</strong
+                  >
+                  <span style="font-size: 0.8rem; color: var(--text-muted)"
+                    >Endocrinóloga Integrativa</span
+                  >
+                </div>
+              </div>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.95rem;
+                  font-style: italic;
+                  margin: 0;
+                  line-height: 1.6;
+                "
+              >
+                "Poder subir analíticas de mis pacientes complejos al foro y
+                debatir con los profesores me da una seguridad clínica increíble
+                a la hora de pautar tratamientos."
+              </p>
+            </div>
+            <div
+              class="card"
+              style="
+                max-width: 400px;
+                text-align: left;
+                background: var(--bg-card);
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  margin-bottom: 1rem;
+                "
+              >
+                <div
+                  style="
+                    width: 45px;
+                    height: 45px;
+                    background: #fef3c7;
+                    color: #d97706;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                  "
+                >
+                  CM
+                </div>
+                <div>
+                  <strong style="display: block; color: var(--primary)"
+                    >Carlos Martínez</strong
+                  >
+                  <span style="font-size: 0.8rem; color: var(--text-muted)"
+                    >Nutricionista Clínico</span
+                  >
+                </div>
+              </div>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.95rem;
+                  font-style: italic;
+                  margin: 0;
+                  line-height: 1.6;
+                "
+              >
+                "El nivel de detalle de las clases es brutal, pero los talleres
+                en directo son los que realmente me han hecho escalar mis
+                consultas a otro nivel económico y profesional."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-sección 4: CTA Final Academia -->
+        <div
+          style="
+            background: var(--accent-light);
+            padding: 5rem 0;
+            border-top: 1px solid var(--border-color);
+          "
+        >
+          <div class="container" style="text-align: center">
+            <h2
+              style="
+                font-size: 2.2rem;
+                color: var(--primary);
+                margin-bottom: 1rem;
+              "
+            >
+              ¿Listo para actualizar tus conocimientos?
+            </h2>
+            <p
+              style="
+                color: var(--text-muted);
+                font-size: 1.1rem;
+                max-width: 600px;
+                margin: 0 auto 2rem auto;
+              "
+            >
+              Accede hoy mismo y comprueba por qué miles de profesionales eligen
+              NutriLearn Pro para su formación continua.
+            </p>
+            <button
+              onclick="switchTab('public-login', 'public')"
+              class="btn btn-primary"
+              style="padding: 1rem 2.5rem; font-size: 1.1rem"
+            >
+              Entrar a la Academia
+              <i class="ph ph-arrow-right" style="margin-left: 0.5rem"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PUBLIC: LOGIN -->
+      <section id="public-login" class="view-section">
+        <div class="container">
+          <div class="login-wrapper card">
+            <h2 style="margin-bottom: 0.5rem">Acceso a la Plataforma</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem">
+              Selecciona tu rol para iniciar la demostración interactiva.
+            </p>
+
+            <button onclick="loginAs('student')" class="btn-login">
+              <span style="display: flex; align-items: center; gap: 1rem">
+                <i class="ph ph-student"></i>
+                <span style="text-align: left">
+                  <strong>Entrar como Alumno</strong><br />
+                  <span
+                    style="
+                      font-size: 0.85rem;
+                      color: var(--text-muted);
+                      font-weight: 400;
+                    "
+                    >Aulas virtuales y comunidad</span
+                  >
+                </span>
+              </span>
+              <i class="ph ph-arrow-right" style="color: var(--text-muted)"></i>
+            </button>
+
+            <button onclick="loginAs('admin')" class="btn-login">
+              <span style="display: flex; align-items: center; gap: 1rem">
+                <i class="ph ph-shield-check"></i>
+                <span style="text-align: left">
+                  <strong>Entrar como Administrador</strong><br />
+                  <span
+                    style="
+                      font-size: 0.85rem;
+                      color: var(--text-muted);
+                      font-weight: 400;
+                    "
+                    >Backend, CRM y Creador de cursos</span
+                  >
+                </span>
+              </span>
+              <i class="ph ph-arrow-right" style="color: var(--text-muted)"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER PÚBLICO -->
+    <footer
+      id="main-footer"
+      style="
+        background-color: var(--primary);
+        color: white;
+        padding: 4rem 0 2rem 0;
+      "
+    >
+      <div class="container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+          "
+        >
+          <div>
+            <div class="logo" style="color: white; margin-bottom: 1rem">
+              <i
+                class="ph-fill ph-pulse"
+                style="color: var(--accent-light)"
+              ></i>
+              NutriLearn<span style="font-weight: 300">Pro</span>
+            </div>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem">
+              Elevando el estándar de la educación en nutrición clínica y
+              medicina integrativa.
+            </p>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 1.5rem; color: white">Plataforma</h4>
+            <ul
+              style="
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.9rem;
+              "
+            >
+              <li>
+                <a
+                  href="#"
+                  onclick="switchTab('public-services', 'public')"
+                  style="transition: color 0.3s"
+                  >Programas Clínicos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="switchTab('public-blog', 'public')"
+                  style="transition: color 0.3s"
+                  >Blog Científico</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="switchTab('public-login', 'public')"
+                  style="transition: color 0.3s"
+                  >Acceso Estudiantes</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 1.5rem; color: white">Legal</h4>
+            <ul
+              style="
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.9rem;
+              "
+            >
+              <li>
+                <a href="#" style="transition: color 0.3s">Aviso Legal</a>
+              </li>
+              <li>
+                <a href="#" style="transition: color 0.3s"
+                  >Política de Privacidad</a
+                >
+              </li>
+              <li>
+                <a href="#" style="transition: color 0.3s"
+                  >Términos y Condiciones</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          style="
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+          "
+        >
+          &copy; 2026 NutriLearn Pro. Desarrollado por MN Design Web.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- SCRIPT LIMPIO (Solo para Front Público y Login Redirect) -->
+    <script>
+      let currentRole = "public";
+
+      // Sincronizar menú móvil
+      function updateMobileMenuLinks() {
+        const navGroup = document.getElementById(`nav-${currentRole}`);
+        const mobileLinks = document.getElementById("mobile-links");
+        if (navGroup && mobileLinks) {
+          mobileLinks.innerHTML = navGroup.innerHTML;
+          const links = mobileLinks.querySelectorAll("a, button");
+          links.forEach((link) => {
+            link.addEventListener("click", () => {
+              document.getElementById("mobile-menu").classList.remove("open");
+              document
+                .getElementById("mobile-overlay")
+                .classList.remove("active");
+            });
+          });
+        }
+      }
+
+      // Navegación SPA Pública
+      function switchTab(tabId, roleRequired) {
+        if (roleRequired && roleRequired !== currentRole) return;
+
+        const sections = document.querySelectorAll(
+          "#standard-layout .view-section",
+        );
+        sections.forEach((sec) => sec.classList.remove("active"));
+
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add("active");
+
+        const links = document.querySelectorAll(`#nav-${currentRole} a`);
+        links.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("onclick").includes(tabId))
+            link.classList.add("active");
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Menú Móvil
+      function toggleMobileMenu() {
+        document.getElementById("mobile-menu").classList.toggle("open");
+        document.getElementById("mobile-overlay").classList.toggle("active");
+      }
+
+      // REDIRECCIONES DE LOGIN (La Magia)
+      function loginAs(role) {
+        if (role === "student") {
+          showToast("Iniciando sesión como Alumno...", "success");
+          setTimeout(() => {
+            window.location.href = "alumno.html";
+          }, 800);
+        } else if (role === "admin") {
+          showToast("Accediendo al Panel de Administración...", "success");
+          setTimeout(() => {
+            window.location.href = "admin.html";
+          }, 800);
+        }
+      }
+
+      // Toasts
+      function showToast(message, type = "success") {
+        const container = document.getElementById("toast-container");
+        const toast = document.createElement("div");
+        toast.className = `toast ${type}`;
+        toast.innerHTML = `<i class="ph-fill ph-check-circle" style="color: var(--${type});"></i><span style="font-weight: 500;">${message}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.animation = "slideOut 0.3s forwards";
+          setTimeout(() => {
+            if (container.contains(toast)) container.removeChild(toast);
+          }, 300);
+        }, 3000);
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        updateMobileMenuLinks();
+      });
+    </script>
+  </body>
+</html>
