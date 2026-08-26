@@ -38,6 +38,39 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+/* ==========================================================================
+   PERSONALIZACIÓN DE LA BARRA DE SCROLL (SCROLLBAR)
+   ========================================================================== */
+
+/* Estándar moderno (Firefox) */
+* {
+  scrollbar-width: thin;
+  /* Usamos el azul corporativo pero más translúcido */
+  scrollbar-color: rgba(29, 78, 216, 0.4) var(--bg-body);
+}
+
+/* Navegadores Webkit (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; 
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* Azul con 40% de opacidad para que sea mucho más suave */
+  background: rgba(29, 78, 216, 0.4);
+  border-radius: 10px;
+  border: 2px solid var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Al pasar el ratón, se vuelve un poco más visible (70%) */
+  background: rgba(29, 78, 216, 0.7);
+}
 a {
   text-decoration: none;
   color: inherit;
