@@ -1,2 +1,2 @@
 # nutrilearn-pro
-Academia de Nutrición Avanzada con cursos, recursos, retos, foros comunidad y muchas mas funciones!
+Academia de Nutrición Avanzada con cursos, recursos, retos, foros comunidad y muchas más funciones!
