@@ -18,6 +18,74 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- ==========================================
+         BANNER DE CAPTACIÓN (MODO DEMO)
+    ========================================== -->
+    <style>
+      .demo-banner {
+        background-color: #0f172a; /* Gris pizarra muy oscuro y elegante */
+        color: #f8fafc;
+        padding: 12px 20px;
+        position: relative;
+        z-index: 9999;
+        border-bottom: 1px solid #1e293b;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .demo-banner-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+      @media (min-width: 640px) {
+        .demo-banner-content {
+          flex-direction: row;
+          gap: 24px;
+        }
+      }
+      .demo-banner-text {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+      }
+      .demo-banner-btn {
+        background-color: #ffffff;
+        color: #0f172a;
+        text-decoration: none;
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .demo-banner-btn:hover {
+        background-color: #fbbf24; /* Amarillo ámbar al pasar el ratón */
+        transform: translateY(-1px);
+        color: #0f172a;
+      }
+    </style>
+
+    <div class="demo-banner">
+      <div class="demo-banner-content">
+        <p class="demo-banner-text">
+          <i class="ph-fill ph-rocket" style="color: #fbbf24; font-size: 1.2rem;"></i> 
+          <span>¿Te gusta esta plataforma para crear tu propia Academia Clínica?</span>
+        </p>
+        <a href="https://descubre.mndesignweb.es/clinicas#formulario" class="demo-banner-btn">
+          Quiero esta web para mi proyecto
+        </a>
+      </div>
+    </div>
+    <!-- ========================================== -->
     <!-- NAVEGACIÓN PÚBLICA -->
     <header id="main-header" class="top-nav">
       <div class="container nav-container">
