@@ -554,7 +554,7 @@
                 "
                 onclick="closeLmsCoursePlayer()"
               >
-                <i class="ph ph-arrow-left"></i> Volver a Mis Cursos
+                <i class="ph ph-arrow-left"></i> Volver
               </button>
             </div>
 
@@ -755,14 +755,14 @@
                   color: var(--text-muted);
                 "
                 id="lesson-counter-text"
-                >Lección 1</span
+                >1</span
               >
               <button
                 class="btn btn-primary"
                 id="next-lesson-btn"
                 onclick="nextPreviewLesson()"
               >
-                Completar y Siguiente <i class="ph ph-arrow-right"></i>
+                Siguiente <i class="ph ph-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -2346,7 +2346,7 @@
         document.getElementById("preview-lesson-desc").innerHTML = lesson.desc;
         document.getElementById("preview-video-iframe").src = lesson.video;
         document.getElementById("lesson-counter-text").innerText =
-          `Lección ${index + 1} de ${previewLessons.length}`;
+          ` ${index + 1} de ${previewLessons.length}`;
 
         const pdfContainer = document.getElementById("preview-pdf-container");
         pdfContainer.innerHTML = "";
@@ -2414,6 +2414,20 @@
           // Hacemos scroll suave hacia arriba para que quede encajado perfecto
           window.scrollTo({ top: 0, behavior: "smooth" });
         }, 50);
+      }
+
+      function openLmsCoursePlayer(courseName) {
+        const grid = document.getElementById("lms-courses-grid");
+        const player = document.getElementById("lms-course-player");
+        if (grid) grid.style.display = "none";
+        if (player) player.style.display = "flex";
+
+        let lessonIndex = 0;
+        if (courseName && courseName.toLowerCase().includes("sop")) {
+          lessonIndex = 1;
+        }
+        changePreviewLesson(lessonIndex);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
       function closeLmsCoursePlayer() {

@@ -25,9 +25,9 @@
         color: #f8fafc;
         padding: 12px 20px;
         position: relative;
-        z-index: 9999;
+        z-index: 9;
         border-bottom: 1px solid #1e293b;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
       }
       .demo-banner-content {
         max-width: 1200px;
@@ -63,7 +63,7 @@
         font-weight: 700;
         transition: all 0.3s ease;
         white-space: nowrap;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
       .demo-banner-btn:hover {
         background-color: #fbbf24; /* Amarillo ámbar al pasar el ratón */
@@ -75,10 +75,19 @@
     <div class="demo-banner">
       <div class="demo-banner-content">
         <p class="demo-banner-text">
-          <i class="ph-fill ph-rocket" style="color: #fbbf24; font-size: 1.2rem;"></i> 
-          <span>¿Te gusta esta plataforma para crear tu propia Academia Clínica?</span>
+          <i
+            class="ph-fill ph-rocket"
+            style="color: #fbbf24; font-size: 1.2rem"
+          ></i>
+          <span
+            >¿Te gusta esta plataforma para crear tu propia Academia
+            Clínica?</span
+          >
         </p>
-        <a href="https://descubre.mndesignweb.es/clinicas#formulario" class="demo-banner-btn">
+        <a
+          href="https://descubre.mndesignweb.es/clinicas#formulario"
+          class="demo-banner-btn"
+        >
           Quiero esta web para mi proyecto
         </a>
       </div>
@@ -104,64 +113,63 @@
             <i class="ph ph-list"></i>
           </button>
         </div>
-
         <nav class="admin-nav" id="nav-admin">
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-crm')"
-            class="active"
-            data-admin-target="admin-crm"
-            ><i class="ph ph-users"></i> CRM Alumnos</a
-          >
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-course-builder')"
-            data-admin-target="admin-course-builder"
-            ><i class="ph ph-cube"></i> Course Builder</a
-          >
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-resources')"
-            data-admin-target="admin-resources"
-            ><i class="ph ph-folder-open"></i> Recursos Académicos</a
-          >
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-live-classes')"
-            data-admin-target="admin-live-classes"
-            ><i class="ph ph-video-conference"></i> Talleres y Masterclass</a
-          >
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-challenges')"
-            data-admin-target="admin-challenges"
-            ><i class="ph ph-lightning"></i> Retos Activos</a
-          >
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-moderation')"
-            data-admin-target="admin-moderation"
-            ><i class="ph ph-chat-circle-text"></i> Moderación Foro</a
-          >
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-roles')"
-            data-admin-target="admin-roles"
-            ><i class="ph ph-shield-star"></i> Roles / Profesores</a
-          >
-          <a
-            href="#"
-            onclick="switchAdminTab('admin-billing')"
-            data-admin-target="admin-billing"
-            ><i class="ph ph-currency-dollar"></i> Facturación</a
-          >
-          <div style="flex: 1"></div>
-          <!-- Al salir, redirigimos al index.html -->
-          <a href="index.html" style="color: #fca5a5"
-            ><i class="ph ph-sign-out"></i> Salir al Portal</a
-          >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-crm')"
+          class="active"
+          data-admin-target="admin-crm"
+          ><i class="ph ph-users"></i> CRM Alumnos</a
+        >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-course-builder')"
+          data-admin-target="admin-course-builder"
+          ><i class="ph ph-cube"></i> Course Builder</a
+        >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-resources')"
+          data-admin-target="admin-resources"
+          ><i class="ph ph-folder-open"></i> Recursos Académicos</a
+        >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-live-classes')"
+          data-admin-target="admin-live-classes"
+          ><i class="ph ph-video-conference"></i> Talleres y Masterclass</a
+        >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-challenges')"
+          data-admin-target="admin-challenges"
+          ><i class="ph ph-lightning"></i> Retos Activos</a
+        >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-moderation')"
+          data-admin-target="admin-moderation"
+          ><i class="ph ph-chat-circle-text"></i> Moderación Foro</a
+        >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-roles')"
+          data-admin-target="admin-roles"
+          ><i class="ph ph-shield-star"></i> Roles / Profesores</a
+        >
+        <a
+          href="#"
+          onclick="switchAdminTab('admin-billing')"
+          data-admin-target="admin-billing"
+          ><i class="ph ph-currency-dollar"></i> Facturación</a
+        >
+        <!-- Al salir, redirigimos al index.html -->
+        <a href="index.html" style="color: #fca5a5"
+          ><i class="ph ph-sign-out"></i> Salir al Portal</a
+        >
         </nav>
       </aside>
+      
 
       <!-- MAIN CONTENT -->
       <main class="admin-main">
@@ -1036,11 +1044,12 @@
                   style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
                   onclick="closeLmsCoursePlayer()"
                 >
-                  <i class="ph ph-arrow-left"></i> Volver al Listado de Cursos
+                  <i class="ph ph-arrow-left"></i> Volver
                 </button>
               </div>
 
               <div
+                class="responsive-two-cols"
                 style="
                   display: grid;
                   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
@@ -1406,7 +1415,7 @@
                   id="prev-lesson-btn"
                   onclick="prevPreviewLesson()"
                 >
-                  <i class="ph ph-arrow-left"></i> Lección Anterior
+                  <i class="ph ph-arrow-left"></i> Anterior
                 </button>
                 <span
                   style="
@@ -1415,14 +1424,14 @@
                     color: var(--text-muted);
                   "
                   id="lesson-counter-text"
-                  >Lección 1 de 2</span
+                  >1 de 2</span
                 >
                 <button
                   class="btn btn-primary"
                   id="next-lesson-btn"
                   onclick="nextPreviewLesson()"
                 >
-                  Siguiente Lección <i class="ph ph-arrow-right"></i>
+                  Siguiente<i class="ph ph-arrow-right"></i>
                 </button>
               </div>
             </div>
@@ -1446,7 +1455,7 @@
                 style="padding: 0.5rem 1rem"
                 onclick="switchAdminTab('admin-course-builder')"
               >
-                <i class="ph ph-arrow-left"></i> Volver al Módulo
+                <i class="ph ph-arrow-left"></i> Volver
               </button>
 
               <div style="display: flex; align-items: center; gap: 1rem">
@@ -1560,6 +1569,7 @@
           <div style="max-width: 1100px">
             <!-- Fila Superior: Vídeo y Tareas (Izq) y Ajustes/Recursos (Der) -->
             <div
+              class="responsive-two-cols"
               style="
                 display: grid;
                 grid-template-columns: 2fr 1fr;
@@ -4386,9 +4396,14 @@ Revisad el PDF adjunto con la matriz de decisión clínica.</textarea
       }
 
       function toggleAdminMenu() {
-        document.getElementById("nav-admin").classList.toggle("open");
+        const nav = document.getElementById("nav-admin") || document.querySelector(".admin-nav");
+        if (nav) {
+          nav.classList.toggle("open");
+          console.log("Estado del menú:", nav.classList.contains("open") ? "Abierto" : "Cerrado");
+        } else {
+          console.error("¡No se ha encontrado el elemento del menú móvil!");
+        }
       }
-
       function toggleAccordion(header) {
         header.classList.toggle("active");
         const content = header.nextElementSibling;
@@ -5199,7 +5214,7 @@ Revisad el PDF adjunto con la matriz de decisión clínica.</textarea
         document.getElementById("preview-lesson-desc").innerHTML = lesson.desc;
         document.getElementById("preview-video-iframe").src = lesson.video;
         document.getElementById("lesson-counter-text").innerText =
-          `Lección ${index + 1} de ${previewLessons.length}`;
+          ` ${index + 1} de ${previewLessons.length}`;
 
         // 2. Renderizar PDFs en la columna derecha de forma controlada
         const pdfContainer = document.getElementById("preview-pdf-container");

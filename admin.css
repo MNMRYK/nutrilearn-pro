@@ -393,10 +393,11 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
-
 @media (max-width: 768px) {
   .admin-wrapper {
     flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important; /* <-- ¡ESTO ERA LO QUE CORTABA EL MENÚ! */
   }
 
   /* 1. La cabecera móvil */
@@ -406,14 +407,15 @@ body {
     padding: 0 1.5rem !important;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
-    position: relative; 
-    z-index: 100;
+    justify-content: center;
+    position: relative !important; 
+    z-index: 1000;
     background-color: #0f172a !important; 
     box-shadow: var(--shadow-sm);
+    overflow: visible !important; /* <-- Permite que el absoluto flote libremente */
   }
 
-  /* ¡ESTA ES LA CLAVE! Obligamos al div que contiene el Logo y el Botón a usar space-between y ocupar todo el ancho */
+  /* Obligamos al div que contiene el Logo y el Botón a usar space-between */
   .admin-sidebar > div:first-child {
     display: flex !important;
     justify-content: space-between !important;
@@ -421,7 +423,7 @@ body {
     width: 100% !important;
   }
 
-  /* 2. Botón hamburguesa limpio y sin parches */
+  /* 2. Botón hamburguesa */
   .admin-mobile-toggle {
     display: block !important;
     background: transparent;
@@ -429,33 +431,35 @@ body {
     color: white;
     font-size: 1.8rem;
     cursor: pointer;
-    padding: 0; /* <-- Fuera el padding-left manual */
-  }
-  /* 3. El Menú Desplegable (FLOTANTE: Se superpone como cortina) */
-  .admin-nav {
-    display: none;
-    flex-direction: column;
-    gap: 0.5rem;
-    position: absolute;
-    top: 50px; /* Se abre exactamente debajo de la barra de 70px */
-    left: 0;
-    width: 100%;
-    background-color: #0f172a !important; /* Mismo azul para no dejar cortes */
-    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
-    margin-top: 0 !important; /* MATAMOS el margen que creaba la franja blanca */
-    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3); /* Sombreado elegante */
-    border-radius: 0 0 16px 16px; /* Cierre suavizado por abajo */
+    padding: 0;
   }
 
-  .admin-nav.open {
+  /* 3. El Menú Desplegable justo debajo de los 70px */
+  .admin-sidebar .admin-nav {
+    display: none !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    position: absolute !important;
+    top: 70px !important; /* Cuelga exactamente debajo de la barra */
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #0f172a !important; 
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem !important;
+    margin-top: 0 !important; 
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.4) !important; 
+    border-radius: 0 0 16px 16px !important; 
+    z-index: 99999 !important;
+  }
+
+  .admin-sidebar .admin-nav.open {
     display: flex !important;
   }
 
-  /* 4. El contenido principal (Se ajusta bajo la barra de 70px) */
+  /* 4. El contenido principal */
   .admin-main {
     padding: 1.25rem !important;
-    height: calc(100vh - 70px) !important;
-    overflow-y: auto !important;
+    height: auto !important;
+    overflow-y: visible !important;
   }
 
   /* 5. Apilamos elementos de las cabeceras */
@@ -470,7 +474,7 @@ body {
     justify-content: center;
   }
 
-  /* 6. Apilamos rejillas a 1 columna (Tarjetas, Stats...) */
+  /* 6. Apilamos rejillas a 1 columna */
   .stats-grid,
   div[style*="grid-template-columns"] {
     grid-template-columns: 1fr !important;
@@ -480,7 +484,7 @@ body {
     padding: 1.25rem !important;
   }
 
-  /* 7. Tablas de datos: permitimos que tengan scroll horizontal interno */
+  /* 7. Tablas de datos con scroll horizontal interno */
   div[style*="overflow-x: auto"] {
     width: calc(100vw - 2.5rem);
     margin-left: -1.25rem;
